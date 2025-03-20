@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tee's Portie-folie</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+        <!-- Main Map Section -->
+        <div class="map-container" id="main-map-container">
+            <img class="main-map" src="assets/island5.webp" alt="World Map" id="main-map-id">
+            <!-- Territories -->
+            <!-- Realm of Code -->
+             <div class="north-map">
+                <div class="territory-name mm-name" data-territory="north">
+                    Realm of Code 
+                </div>
+                <div id="north-modal" class="map-modal main-map-modal">
+                    <div class="map-modal-content">
+                        <div class="modal-info">
+                            <span class="modal-close-btn">&times;</span>
+                            <div class="modal-coin-box" id="modal-coin-counter">
+                                <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                <div class="num-coin">1/5</div>
+                            </div>
+                            <div class="modal-inv-info"></div>
+                        </div>
+                        <!-- <span class="modal-close-btn">&times;</span> -->
+                        <!-- <img class="modal-img" src=""> -->
+                        <!-- <h2 class="modal-title"></h2> -->
+                        <p class="modal-desc"></p>
+                    </div>
+                </div>
+             </div>
+            <!-- The Storyteller's Path -->
+             <div class="east-map">
+                <div class="territory-name mm-name" data-territory="east">
+                    The Storyteller's Path
+                </div>
+                <div id="east-modal" class="map-modal main-map-modal">
+                    <div class="map-modal-content">
+                        <div class="modal-info">
+                            <span class="modal-close-btn">&times;</span>
+                            <div class="modal-coin-box" id="modal-coin-counter">
+                                <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                <div class="num-coin">1/5</div>
+                            </div>
+                            <div class="modal-inv-info"></div>
+                        </div>
+                        <!-- <span class="modal-close-btn">&times;</span>
+                        <img class="modal-img" src=""> -->
+                        <!-- <h2 class="modal-title"></h2> -->
+                        <p class="modal-desc"></p>
+                    </div>
+                </div>
+             </div>
+            <!-- The Creative Frontier -->
+             <div class="south-map">
+                <div class="territory-name mm-name" data-territory="south">
+                    The Creative Frontier
+                </div>
+                <div id="south-modal" class="map-modal main-map-modal">
+                    <div class="map-modal-content">
+                        <div class="modal-info">
+                            <span class="modal-close-btn">&times;</span>
+                            <div class="modal-coin-box" id="modal-coin-counter">
+                                <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                <div class="num-coin">1/5</div>
+                            </div>
+                            <div class="modal-inv-info"></div>
+                        </div>
+                        <!-- <span class="modal-close-btn">&times;</span>
+                        <img class="modal-img" src=""> -->
+                        <!-- <h2 class="modal-title"></h2> -->
+                        <p class="modal-desc"></p>
+                    </div>
+                </div>
+             </div>
+            <!-- The Hidden Archives -->
+             <div class="west-map">
+                <div class="territory-name mm-name" data-territory="west">
+                    The Hidden Archives
+                </div>
+                <div id="west-modal" class="map-modal main-map-modal">
+                    <div class="map-modal-content">
+                        <div class="modal-info">
+                            <span class="modal-close-btn">&times;</span>
+                            <div class="modal-coin-box" id="modal-coin-counter">
+                                <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                <div class="num-coin">1/5</div>
+                            </div>
+                            <div class="modal-inv-info"></div>
+                        </div>
+                        <!-- <span class="modal-close-btn">&times;</span>
+                        <img class="modal-img" src=""> -->
+                        <!-- <h2 class="modal-title"></h2> -->
+                        <p class="modal-desc"></p>
+                    </div>
+                </div>
+             </div>
+        </div>
+
+        <!-- North Territory Section -->
+        <div id="north-section" class="territory-section hidden" data-land="north-land">
+            <div class="land-body" id="north-land-body">
+                <!-- The Realm of Code Section -->
+                <section id="realm-of-code" class="territory-section north-body territory-body hidden">
+                    <header class="section-header">
+                        <p>Where logic and creativity blend into structured problem-solving.</p>
+                        <nav class="subsection-nav">
+                            <button class="subsection-button" data-target="algorithmic-hills">🖥️ Algorithmic Hills</button>
+                            <button class="subsection-button" data-target="framework-forge">🔧 Framework Forge</button>
+                            <button class="subsection-button" data-target="api-crossroads">🚀 API Crossroads</button>
+                        </nav>
+                    </header>
+            
+                    <!-- Algorithmic Hills (Problem-Solving & Coding Challenges) -->
+                    <section id="nl1-subsection" class="subsection hidden">
+                        <h3>The Algorithmic Hills</h3>
+                        <p>Explore coding challenges and algorithmic problem-solving.</p>
+
+                        <div class="code-showcase">
+                            <h4>Code Example: Optimizing a Search Algorithm</h4>
+                            <pre><code>
+                                def binary_search(arr, target):
+                                left, right = 0, len(arr) - 1
+                                while left <= right:
+                                mid = (left + right) // 2
+                                if arr[mid] == target:
+                                    return mid
+                                elif arr[mid] < target:
+                                    left = mid + 1
+                                else:
+                                    right = mid - 1
+                                return -1
+                            </code></pre>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/coding-challenges" target="_blank">View More Challenges</a>
+                        </div>
+                    </section>
+
+                    <!-- Framework Forge (Tech Stack & Portfolio Walkthroughs) -->
+                    <section id="nl2-subsection" class="subsection hidden">
+                        <h3>The Framework Forge</h3>
+                        <p>Discover the frameworks and tech stacks I've worked with.</p>
+
+                        <div class="framework-list">
+                            <div class="framework-card">
+                                <h4>Django</h4>
+                                <p>Built custom backends for projects with Django ORM.</p>
+                            </div>
+                            <div class="framework-card">
+                                <h4>React</h4>
+                                <p>Interactive UI development with component-based architecture.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- API Crossroads (API-Based Projects) -->
+                    <section id="nl3-subsection" class="subsection hidden">
+                        <h3>The API Crossroads</h3>
+                        <p>Exploring projects that integrate APIs to fetch and manipulate data.</p>
+
+                        <div class="api-example">
+                            <h4>Weather Dashboard</h4>
+                            <p>Using OpenWeather API to display real-time weather updates.</p>
+                            <a href="https://yourprojectlink.com" target="_blank">🔗 View Project</a>
+                        </div>
+                    </section>
+
+                    <!-- Return Button -->
+                    <button class="back-to-map">⬅️ Return to Map</button>
+                </section>
+            </div>
+            
+            <div class="north-map-container territory-map-container" id="nm-container">
+                <img class="main-map" src="assets/realmofcode2.webp" alt="North Map" id="north-map-id">
+                <button id="close-north-map" type="button" class="map-close-btn">&times;</button>
+                <!-- Lands -->
+                <!-- The Algorithmic Hills -->
+                 <div class="land1North-map">
+                    <div class="territory-name nl-name" data-territory="land1North">
+                        The Algorithmic Hills
+                    </div>
+                    <div id="land1North-modal" class="map-modal north-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <span class="modal-close-btn">&times;</span> -->
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                    
+                 </div>
+                <!-- The Framework Forge -->
+                 <div class="land2North-map">
+                    <div class="territory-name nl-name" data-territory="land2North">
+                        The Framework Forge
+                    </div>
+                    <div id="land2North-modal" class="map-modal north-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <span class="modal-close-btn">&times;</span> -->
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+                <!-- The API Crossroads -->
+                 <div class="land3North-map">
+                    <div class="territory-name nl-name" data-territory="land3North">
+                        The API Crossroads
+                    </div>
+                    <div id="land3North-modal" class="map-modal north-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <span class="modal-close-btn">&times;</span> -->
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- Maybe a 'Back to Map' button or some interactive content here -->
+        </div>
+
+        <!-- East Territory Section -->
+        <div id="east-section" class="territory-section hidden" data-land="east-land">
+            <div class="land-body" id="east-land-body">
+                <!-- The Storyteller’s Path Section -->
+                 <section id="storytellers-path" class="territory-section east-body territory-body hidden">
+                    <header class="section-header">
+                        <h2>The Storyteller's Path</h2>
+                        <p>Where experiences shape knowledge, and creativity fuels innovation.</p>
+                    </header>
+
+                    <nav class="subsection-nav">
+                        <button class="subsection-button" data-target="origin-grove">🛤️ The Origin Grove</button>
+                        <button class="subsection-button" data-target="learning-bridge">🌉 The Learning Bridge</button>
+                        <button class="subsection-button" data-target="reflection-tower">🛡️ The Reflection Tower</button>
+                    </nav>
+
+                    <!-- The Origin Grove (Background & How You Started) -->
+                    <section id="el1-subsection" class="subsection hidden">
+                        <h3>The Origin Grove</h3>
+                        <p>Every journey starts somewhere—here's how mine began.</p>
+
+                        <div class="story-card">
+                            <h4>From [Past Experience] to Developer</h4>
+                            <p>My journey started when I discovered [Your first tech experience]. Since then, I've...</p>
+                        </div>
+
+                        <div class="interactive-timeline">
+                            <h4>Interactive Timeline</h4>
+                            <p>Scroll through key moments in my journey.</p>
+                            <div class="timeline-container">
+                                <div class="timeline-event">
+                                    <span class="date">2010</span>
+                                    <p>Started exploring programming with [tech or tool].</p>
+                                </div>
+                                <div class="timeline-event">
+                                    <span class="date">2018</span>
+                                    <p>Built my first real-world project: [Project Name].</p>
+                                </div>
+                                <div class="timeline-event">
+                                    <span class="date">2024</span>
+                                    <p>Certified in Python & diving into advanced web development.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- The Learning Bridge (Growth & Overcoming Challenges) -->
+                    <section id="el2-subsection" class="subsection hidden">
+                        <h3>The Learning Bridge</h3>
+                        <p>The obstacles that shaped me into a better developer.</p>
+
+                        <div class="growth-story">
+                            <h4>Tackling Burnout & Learning Resilience</h4>
+                            <p>At one point, I hit a wall—burnout. Here's how I overcame it...</p>
+                        </div>
+
+                        <div class="milestone-list">
+                            <h4>Key Learning Milestones</h4>
+                            <ul>
+                                <li>Discovering my passion for problem-solving.</li>
+                                <li>Building my first interactive web app.</li>
+                                <li>Collaborating on open-source projects.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- The Reflection Tower (Philosophy & Self-Improvement) -->
+                    <section id="el3-subsection" class="subsection hidden">
+                        <h3>The Reflection Tower</h3>
+                        <p>Looking back at the journey, learning never stops.</p>
+
+                        <div class="philosophy-box">
+                            <h4>My Developer Philosophy</h4>
+                            <p>"Learning to code is not just about syntax—it's about problem-solving and continuous growth."</p>
+                        </div>
+
+                        <div class="project-retrospective">
+                            <h4>What I’ve Learned from My Projects</h4>
+                            <p>Each project has taught me something new, whether it was debugging skills, design patterns, or soft skills.</p>
+                        </div>
+                    </section>
+
+                        <!-- Return Button -->
+                    <button class="back-to-map">⬅️ Return to Map</button>
+                 </section>
+            </div>
+            
+            <div class="east-map-container territory-map-container" id="em-container">
+                <img class="main-map" src="assets/storytellerspath.webp" alt="East Map" id="east-map-id">
+                <button id="close-east-map" type="button" class="map-close-btn">&times;</button>
+                <!-- Lands -->
+                <!-- The Origin Grove -->
+                 <div class="land1East-map">
+                    <div class="territory-name el-name" data-territory="land1East">
+                        The Origin Grove
+                    </div>
+                    <div id="land1East-modal" class="map-modal east-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <span class="modal-close-btn">&times;</span> -->
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+                <!-- The Learning Bridge -->
+                 <div class="land2East-map">
+                    <div class="territory-name el-name" data-territory="land2East">
+                        The Learning Bridge
+                    </div>
+                    <div id="land2East-modal" class="map-modal east-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+                <!-- The Reflection Tower -->
+                 <div class="land3East-map">
+                    <div class="territory-name el-name" data-territory="land3East">
+                        The Reflection Tower
+                    </div>
+                    <div id="land3East-modal" class="map-modal east-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- Maybe a 'Back to Map' button or some interactive content here -->
+        </div>
+
+        <!-- South Territory Section -->
+        <div id="south-section" class="territory-section hidden" data-land="south-land">
+            <div class="land-body" id="south-land-body">
+                <!-- The Creative Frontier Section -->
+                <section id="creative-frontier" class="territory-section south-body territory-body hidden">
+                    <header class="section-header">
+                        <h2>The Creative Frontier</h2>
+                        <p>Where imagination meets innovation. Explore my creative experiments, projects, and ideas.</p>
+                    </header>
+
+                    <nav class="subsection-nav">
+                        <button class="subsection-button" data-target="puzzle-workshop">🧩 The Puzzle Workshop</button>
+                        <button class="subsection-button" data-target="expression-pavilion">🎭 The Expression Pavilion</button>
+                        <button class="subsection-button" data-target="concept-forge">⚙️ The Concept Forge</button>
+                    </nav>
+
+                    <!-- 🧩 The Puzzle Workshop (Logic-based Projects & Puzzles) -->
+                    <section id="sl1-subsection" class="subsection hidden">
+                        <h3>The Puzzle Workshop</h3>
+                        <p>Where logic meets creativity—interactive puzzles and coding experiments.</p>
+
+                        <div class="project-card">
+                            <h4>JavaScript Puzzle Game</h4>
+                            <p>A fun puzzle game built with JavaScript that challenges logical thinking.</p>
+                            <a href="#" class="project-link">Play Now</a>
+                        </div>
+
+                        <div class="project-card">
+                            <h4>Algorithmic Puzzle Challenge</h4>
+                            <p>A collection of small coding challenges that test problem-solving skills.</p>
+                            <a href="#" class="project-link">Try It</a>
+                        </div>
+                    </section>
+
+                    <!-- 🎭 The Expression Pavilion (Creative Coding & Design) -->
+                    <section id="sl2-subsection" class="subsection hidden">
+                        <h3>🎭 The Expression Pavilion</h3>
+                        <p>A space for interactive visuals, animations, and generative art.</p>
+
+                        <div class="art-project">
+                            <h4>🖼️ Generative Art Experiment</h4>
+                            <p>Using p5.js and creative coding techniques to generate unique artwork.</p>
+                            <a href="#" class="project-link">View Art</a>
+                        </div>
+
+                        <div class="art-project">
+                            <h4>💡 UI/UX Animation Concept</h4>
+                            <p>Experimenting with microinteractions and UI animations.</p>
+                            <a href="#" class="project-link">See Animation</a>
+                        </div>
+                    </section>
+
+                    <!-- ⚙️ The Concept Forge (Unfinished & Experimental Ideas) -->
+                    <section id="sl3-subsection" class="subsection hidden">
+                        <h3>The Concept Forge</h3>
+                        <p>Ideas in progress—prototypes, experiments, and half-finished builds.</p>
+
+                        <div class="concept-card">
+                            <h4>AI-Powered Interactive Story</h4>
+                            <p>Exploring an AI-driven narrative experience where users shape the story.</p>
+                            <a href="#" class="project-link">Read More</a>
+                        </div>
+
+                        <div class="concept-card">
+                            <h4>🚀 Unrealized Game Concept</h4>
+                            <p>A concept for a pixel-art RPG that never made it past the prototype phase.</p>
+                            <a href="#" class="project-link">See Concept</a>
+                        </div>
+                    </section>
+
+                        <!-- Return Button -->
+                        <button class="back-to-map">⬅️ Return to Map</button>
+                </section>
+            </div>
+            
+            <div class="south-map-container territory-map-container" id="sm-container">
+                <img class="main-map" src="assets/creativefrontier2.webp" alt="South Map" id="south-map-id">
+                <button id="close-south-map" type="button" class="map-close-btn">&times;</button>
+                <!-- Lands -->
+                <!-- The Puzzle Workshop -->
+                 <div class="land1South-map">
+                    <div class="territory-name sl-name" data-territory="land1South">
+                        The Puzzle Workshop
+                    </div>
+                    <div id="land1South-modal" class="map-modal south-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+                <!-- The Expression Pavilion -->
+                 <div class="land2South-map">
+                    <div class="territory-name sl-name" data-territory="land2South">
+                        The Expression Pavilion
+                    </div>
+                    <div id="land2South-modal" class="map-modal south-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+                <!-- The Concept Forge -->
+                 <div class="land3South-map">
+                    <div class="territory-name sl-name" data-territory="land3South">
+                        The Concept Forge
+                    </div>
+                    <div id="land3South-modal" class="map-modal south-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- Maybe a 'Back to Map' button or some interactive content here -->
+        </div>
+
+        <!-- West Territory Section -->
+        <div id="west-section" class="territory-section hidden" data-land="west-land">
+            <div class="land-body" id="west-land-body">
+                <!-- The Hidden Archives Section -->
+                <section id="hidden-archives" class="territory-section west-body territory-body hidden">
+                    <header class="section-header">
+                        <h2>The Hidden Archives</h2>
+                        <p>A collection of forgotten files, secret projects, and things left behind.</p>
+                    </header>
+
+                    <nav class="subsection-nav">
+                        <button class="subsection-button" data-target="forgotten-files">📂 The Forgotten Files</button>
+                        <button class="subsection-button" data-target="easter-egg-vault">🥚 The Easter Egg Vault</button>
+                        <button class="subsection-button" data-target="unfinished-abyss">⚫ The Unfinished Abyss</button>
+                    </nav>
+
+                    <!-- 📂 The Forgotten Files (Old Projects & Deprecated Code) -->
+                    <section id="wl1-subsection" class="subsection hidden">
+                        <h3>📂 The Forgotten Files</h3>
+                        <p>Old projects, deprecated code, and things that shaped my journey.</p>
+
+                        <div class="project-card">
+                            <h4>My First Website</h4>
+                            <p>A glimpse into my first-ever coded website. Raw, nostalgic, and chaotic.</p>
+                            <a href="#" class="project-link">View Archive</a>
+                        </div>
+
+                        <div class="project-card">
+                            <h4>A Long-Forgotten App</h4>
+                            <p>A half-built project that never got released. Here's what it could have been.</p>
+                            <a href="#" class="project-link">View Archive</a>
+                        </div>
+                    </section>
+
+                    <!-- 🥚 The Easter Egg Vault (Hidden Details & Fun Secrets) -->
+                     <section id="wl2-subsection" class="subsection hidden">
+                        <h3>🥚 The Easter Egg Vault</h3>
+                        <p>Hidden gems, secret details, and playful surprises in my work.</p>
+
+                        <div class="easter-egg">
+                            <h4>🎨 A Secret Animation</h4>
+                            <p>One of my projects has an animation only a few people have ever noticed.</p>
+                            <a href="#" class="project-link">Find the Secret</a>
+                        </div>
+                
+                        <div class="easter-egg">
+                            <h4>🕵️‍♂️ Hidden Console Logs</h4>
+                            <p>Did you know there's a message in the browser console? Try opening DevTools.</p>
+                            <a href="#" class="project-link">Decode the Clue</a>
+                        </div>
+                     </section>
+
+                     <!-- ⚫ The Unfinished Abyss (Prototypes & Scrapped Ideas) -->
+                     <section id="wl3-subsection" class="subsection hidden">
+                        <h3>⚫ The Unfinished Abyss</h3>
+                        <p>Projects that never made it to the finish line—but still have a story to tell.</p>
+
+                        <div class="concept-card">
+                            <h4>🛠️ A Game That Was Never Made</h4>
+                            <p>This was meant to be a story-driven adventure game... but it didn’t happen.</p>
+                            <a href="#" class="project-link">Peek into the Abyss</a>
+                        </div>
+                
+                        <div class="concept-card">
+                            <h4>📜 A Scrapped Blog Concept</h4>
+                            <p>Started, abandoned, restarted, abandoned again. A blog that never launched.</p>
+                            <a href="#" class="project-link">See the Drafts</a>
+                        </div>
+                     </section>
+
+                     <!-- Return Button -->
+                     <button class="back-to-map">⬅️ Return to Map</button>
+                </section>
+            </div>
+            
+            <div class="west-map-container territory-map-container" id="wm-container">
+                <img class="main-map" src="assets/cybercity2.webp" alt="West Map" id="west-map-id">
+                <button id="close-west-map" type="button" class="map-close-btn">&times;</button>
+                <!-- Lands -->
+                <!-- The Forgotten Files -->
+                 <div class="land1West-map">
+                    <div class="territory-name wl-name" data-territory="land1West">
+                        The Forgotten Files
+                    </div>
+                    <div id="land1West-modal" class="map-modal west-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+                <!-- The Easter Egg Vault -->
+                 <div class="land2West-map">
+                    <div class="territory-name wl-name" data-territory="land2West">
+                        The Easter Egg Vault
+                    </div>
+                    <div id="land2West-modal" class="map-modal west-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>  
+                 </div>
+                <!-- The Unfinished Abyss -->
+                 <div class="land3West-map">
+                    <div class="territory-name wl-name" data-territory="land3West">
+                        The Unfinished Abyss
+                    </div>
+                    <div id="land3West-modal" class="map-modal west-map-modal">
+                        <div class="map-modal-content">
+                            <div class="modal-info">
+                                <span class="modal-close-btn">&times;</span>
+                                <div class="modal-coin-box" id="modal-coin-counter">
+                                    <img class="icon-img" src="assets/crown-coin.png" alt="Coin Counter">
+                                    <div class="num-coin">1/5</div>
+                                </div>
+                                <div class="modal-inv-info"></div>
+                            </div>
+                            <!-- <img class="modal-img" src=""> -->
+                            <!-- <h2 class="modal-title"></h2> -->
+                            <p class="modal-desc"></p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- Maybe a 'Back to Map' button or some interactive content here -->
+        </div>
+
+        <!-- Nav / Testbox Section -->
+        <div class="nav-container">
+            <div class="top-nav">
+                <div class="coin-box" id="coin-counter">
+                    <img class="icon-img" src="assets/crown-coin.png" alt="Inventory" id="inv-img-id">
+                    <div class="num-coin">1</div>
+                </div>
+                <h1 class="site-name" id="section-name">The World of Tee</h1>
+                <button aria-label="Inventory" class="inventory-button" id="inv-button">
+                    <img class="icon-img" src="assets/knapsack.png" alt="Inventory" id="inv-img-id">
+                </button>
+            </div>
+            
+            <div class="minimap-box hidden">
+                <button type="button" aria-label="Zoom Map" class="zoom-map-btn" id="zoom-map-btn">&times;</button>
+                <img class="minimap-img" src="" alt="Minimap" id="minimap-img-id">
+            </div>  
+            <div id="inv-modal" class="inventory-modal">
+                <div class="inv-modal-content">
+                    <span class="inv-close-btn">&times;</span>
+                    <div class="inv-modal-title">Inventory</div>
+                    <div class="inv-modal-box-container"></div>
+                </div>
+            </div>    
+            <!-- Floating Text Box -->
+            <div class="text-box" id="text-box-nav">
+                <div class="text-area" id="text-area-nav">
+                    <div class="nav-buttons">
+                        <div class="main-buttons" id="main-button-row">
+                            <button type="button" aria-label="Go North" class="option-button vt323-button" id="north-button">Realm of Code</button>
+                            <button type="button" aria-label="Go East" class="option-button vt323-button" id="east-button">The Storyteller's Path</button>
+                            <button type="button" aria-label="Go South" class="option-button vt323-button" id="south-button">The Creative Frontier</button>
+                            <button type="button" aria-label="Go West" class="option-button vt323-button" id="west-button">The Hidden Archives</button>
+                        </div>
+                    </div>
+                    <div class="text-inv">
+                        <div class="text-nav-box">
+                            <span class="text-nav vt323-text"></span>
+                            <div class="choice-button" id="choice-button-row">
+                                <button onclick="" type="button" arie-label="Skip" class="option-button vt323-button-secondary" id="skip-button"><<</button>
+                                <button onclick="openMap()" type="button" arie-label="Open" class="option-button vt323-button-secondary" id="open-button">Open Map</button>
+                                <button onclick="tellMeMore()" type="button" arie-label="More" class="option-button vt323-button-secondary" id="more-button">Tell me more</button>
+                                <button onclick="skipAnimation()" type="button" arie-label="Skip" class="option-button vt323-button-secondary" id="skip-button">>></button>
+                            </div>
+                        </div>
+                        <!-- <div class="side-info" id="side-info-col">
+                            <div class="coin-box" id="coin-counter">$0</div>
+                            <button aria-label="Inventory" class="inventory-button" id="inv-button">Inv</button>
+                        </div> -->
+                    </div>
+                    <!-- <div class="nav-buttons">
+                        <div class="main-buttons" id="main-button-row">
+                            <button type="button" aria-label="Go North" class="option-button vt323-button" id="north-button">Realm of Code</button>
+                            <button type="button" aria-label="Go East" class="option-button vt323-button" id="east-button">The Storyteller's Path</button>
+                            <button type="button" aria-label="Go South" class="option-button vt323-button" id="south-button">The Creative Frontier</button>
+                            <button type="button" aria-label="Go West" class="option-button vt323-button" id="west-button">The Hidden Archives</button>
+                        </div>
+                    </div> -->
+                    <div class="nav-buttons">
+                        <div class="territory-buttons north-buttons" id="north-buttons-row">
+                            <button type="button" aria-label="Go North" class="north-button vt323-button" id="nl1-button">The Algorithmic Hills</button>
+                            <button type="button" aria-label="Go South" class="north-button vt323-button" id="nl2-button">The Framework Forge</button>
+                            <button type="button" aria-label="Go East" class="north-button vt323-button" id="nl3-button">The API Crossroads</button>
+                            <button onclick="goBack()" type="button" aria-label="Go Back" class="north-button vt323-button" id="nl4-button">Go Back</button>
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        <div class="territory-buttons east-buttons" id="east-buttons-row">
+                            <button type="button" aria-label="Go North" class="east-button vt323-button" id="el1-button">The Origin Grove</button>
+                            <button type="button" aria-label="Go South" class="east-button vt323-button" id="el2-button">The Learning Bridge</button>
+                            <button type="button" aria-label="Go East" class="east-button vt323-button" id="el3-button">The Reflection Tower</button>
+                            <button onclick="goBack()" type="button" aria-label="Go Back" class="north-button vt323-button" id="el4-button">Go Back</button>
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        <div class="territory-buttons south-buttons" id="south-buttons-row">
+                            <button type="button" aria-label="Go North" class="south-button vt323-button" id="sl1-button">The Puzzle Workshop</button>
+                            <button type="button" aria-label="Go South" class="south-button vt323-button" id="sl2-button">The Expression Pavilion</button>
+                            <button type="button" aria-label="Go East" class="south-button vt323-button" id="sl3-button">The Concept Forge</button>
+                            <button onclick="goBack()" type="button" aria-label="Go Back" class="north-button vt323-button" id="sl4-button">Go Back</button>
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        <div class="territory-buttons west-buttons" id="west-buttons-row">
+                            <button type="button" aria-label="Go North" class="west-button vt323-button" id="wl1-button">The Forgotten Files</button>
+                            <button type="button" aria-label="Go South" class="west-button vt323-button" id="wl2-button">The Easter Egg Vault</button>
+                            <button type="button" aria-label="Go East" class="west-button vt323-button" id="wl3-button">The Unfinished Abyss</button>
+                            <button onclick="goBack()" type="button" aria-label="Go Back" class="north-button vt323-button" id="wl4-button">Go Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
