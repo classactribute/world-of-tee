@@ -1,0 +1,91 @@
+@import '_mixins';
+
+.inventory-modal {
+    @include inventory-modal-style();
+
+    //responsive
+    @media (min-width: 768px) {
+        display: none; 
+        position: fixed;
+        z-index: 999;
+        bottom: 27%;
+        left: 55%;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+        width: 25%; 
+        height: auto; 
+        background-color: $text-background; 
+        border-radius: 5px;
+    }
+}
+
+.main-map-modal {
+    @include map-modal-base();
+    background-color: $dark-pink;
+    border: 5px solid $yellow;
+    box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+
+    //responsive
+    // @media (min-width: 768px) {
+    //     background-color: $lighter-pink;
+    //     border-color: $text-background;
+    //     box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+    // }
+}
+
+.north-map-modal {
+    @include map-modal-base();
+    background-color: $north-purple;
+    border-color: $text-background;
+    box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+
+    //responsive
+    // @media (min-width: 768px) {
+    //     background-color: $primary-button-color;
+    //     border-color: $text-background;
+    //     box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+    // }
+}
+
+.east-map-modal {
+    @include map-modal-base();
+    background-color: $east-fark-green;
+    border-color: $text-background;
+    box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+
+    //responsive
+    // @media (min-width: 768px) {
+    //     background-color: $primary-button-color;
+    //     border-color: $text-background;
+    //     box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+    // }
+}
+
+.south-map-modal {
+    @include map-modal-base();
+    background-color: $south-pink-orange;
+    border-color: $text-background;
+    box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+
+    //responsive
+    // @media (min-width: 768px) {
+    //     background-color: $primary-button-color;
+    //     border-color: $text-background;
+    //     box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+    // }
+}
+
+.west-map-modal {
+    @include map-modal-base();
+    background-color: $lighter-pink;
+    border-color: $text-background;
+    box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+
+    //responsive
+    // @media (min-width: 768px) {
+    //     background-color: $primary-button-color;
+    //     border-color: $text-background;
+    //     box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+    // }
+}

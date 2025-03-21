@@ -1,0 +1,53 @@
+@import '_mixins';
+
+.map-container {
+    @include map-style();
+
+    //responsive
+    @media (min-width: 768px) {
+        visibility: hidden;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        object-fit: 100% 100%;
+        margin-top: 35px;
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+    }
+}
+
+.territory-map-container {
+    @include territory-map-container-style();
+
+    @media (min-width: 768px) {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        object-fit: 100% 100%;
+        margin-top: 35px;
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+    }
+}
+
+.nav-container {
+    @include nav-container-style();
+
+    //responsive
+    @media (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 30px;
+        max-width: 80%;
+        width: 1152px;
+        height: 200px;
+    }
+}

@@ -1,0 +1,714 @@
+body {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('assets/start-background.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    padding-bottom: 200px;
+}
+
+.top-nav {
+    z-index: 20;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 30%;
+    width: 40%;
+}
+
+h1 {
+    font-family: "VT323", serif;
+    font-weight: 550;
+    font-style: normal;
+    font-size: clamp(2rem, 2vw, 3rem);
+    color: $yellow;
+    text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
+}
+
+h3 {
+    font-family: "VT323", serif;
+    font-weight: 550;
+    font-style: normal;
+    font-size: clamp(1.5rem, 1.5vw, 2rem);
+    color: $neon-pink;
+    text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
+}
+
+p {
+    font-family: "VT323", serif;
+    font-weight: 550;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.25vw, 2rem);
+    color: $yellow;
+    text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
+}
+
+.site-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid;
+    border-color: $yellow;
+    border-radius: 10px;
+    background-image: linear-gradient(180deg, $dark-blue, $neon-pink, );
+    box-shadow: inset 2px 2px 4px 1px rgba(0, 0, 0, 0.5);
+    margin: 5px;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.coin-box {
+    display: flex;
+    // flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    background-color: $charcoal-dark;
+    border: 5px solid $yellow;
+    color: $soft-yellow;
+    border-radius: 10px;
+    //border-color: $coin-border;
+    margin: 0px 0px 5px 5px;
+    box-shadow: inset 1px 1px 2px $coin-box-shadow;
+    //border-radius: 3px;
+    margin: 5px;
+    padding: 4px;
+    width: auto;
+    height: auto;
+}
+
+.num-coin {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style:normal;
+    font-size: clamp(2rem, 2vw, 3rem);
+    color: $soft-yellow;
+    padding: 4px;
+}
+
+.territory-section  {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.land-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px $box-shadow-dark;
+    width: 100%;
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.subsection-nav {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+// .section-container {
+//     display: flex;
+//     flex-direction: column;
+//     position: relative;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.north-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.east-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.south-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.west-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.hidden {
+    display: none;
+  }
+
+.main-map {
+    max-width: 100%;
+    box-shadow: 2px 2px 10px 1px $bright-yellow-glow;
+    //box-shadow: inset 2px 2px 4px 1px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    border: 5px solid;
+    border-color: $yellow;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.text-nav {
+    color: $bright-cyan;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-family: "VT323", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.5rem, 1.5vw, 2rem);
+    padding: 10px;
+}
+
+.text-inv {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    //max-width: 95%;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.side-info {
+    display: flex;
+    position: absolute;
+    left: 98%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-buttons {
+    justify-content: space-evenly;
+}
+
+.choice-button {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+// Inventory Modal
+.inv-modal-content {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-button-color;
+    border-style: solid;
+    border-color: $text-background;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px 1px $option-button-box-shadow;
+    width: 100%; 
+    height: 100%;
+}
+
+.inv-modal-title {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.5625vw, 2rem);
+    color:  $text-background;
+    justify-self: center;
+    margin: 6px;
+}
+
+.inv-close-btn {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.5625vw, 2rem);
+    color: $text-background;
+    float: right;
+    margin: 4px;
+}
+
+.inv-close-btn:hover,
+.inv-close-btn:focus {
+    color: $inventory-color;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.inv-modal-box-container {
+    display: grid;
+    background-color: $inventory-color;
+    border-radius: 2px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: $text-background;
+    box-shadow: inset 0 0 10px $option-button-box-shadow;
+    grid-template-columns: repeat(auto-fill, minmax(2.2rem, 1fr));
+    grid-auto-rows: 1fr;
+    margin: 7px;
+}
+
+.inv-modal-box-container::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+  
+.inv-modal-box-container > *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+  
+.inv-modal-box-container > * {
+    background: $text-background;
+    margin: 4px;
+    border-radius: 2px;
+    border-color: $inventory-border;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 10px $box-shadow-dark;
+}
+
+// ------------------------ //
+
+.modal-inv-info {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    border-radius: 5px;
+    border: 1px solid $yellow;
+    box-shadow: inset 0 0 10px $option-button-box-shadow;
+    // grid-template-columns: repeat(auto-fill, minmax(2.2rem, 1fr));
+    // grid-auto-rows: 1fr;
+    margin: 10px;
+}
+  
+.modal-inv-info > * {
+    background: $charcoal-dark;
+    margin: 4px;
+    border-radius: 5px;
+    border: 1px solid $yellow;
+    box-shadow: inset 0 0 10px $box-shadow-dark;
+}
+
+.map-modal-content {
+    font-family: "VT323", serif;
+    font-weight: 550;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.25vw, 2rem);
+    text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
+    color: $yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+// .modal-img {
+//     margin: 10px;
+//     border: 5px solid $yellow;
+//     border-radius: 10px;
+//     box-shadow: inset 0 0 10px $box-shadow-dark;
+// }
+
+.modal-desc {
+    margin: 10px;
+    padding: 10px;
+    //border: 5px solid $yellow;
+    //border-radius: 10px;
+    box-shadow: inset 0 0 10px $box-shadow-dark;
+}
+
+.mm-name {
+    font-family: "VT323", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.25vw, 2rem);
+    color: $yellow;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+// .mm-name:hover,
+// .mm-name:focus {
+//     font-size: clamp(2rem, 2vw, 2rem);
+//     cursor: pointer;
+// }
+
+.north-map{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 33%;
+    max-width: 30%;
+}
+
+.nl-name {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.25vw, 2rem);
+    color: $north-light-pink;
+    text-shadow: -1px -1px 0 $north-dark-blue-purple, 1px -1px 0 $north-dark-blue-purple, -1px 1px 0 $north-dark-blue-purple, 1px 1px 0 $north-dark-blue-purple;
+}
+
+.east-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 27%;
+    top: 48%;
+    max-width: 30%;
+}
+
+.el-name {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.25vw, 2rem);
+    color: $east-dark-purple;
+    text-shadow: -1px -1px 0 $east-white-glow, 1px -1px 0 $east-white-glow, -1px 1px 0 $east-white-glow, 1px 1px 0 $east-white-glow;
+}
+
+.south-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 28%;
+    right: 38%;
+    max-width: 30%;
+}
+
+.sl-name {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.25vw, 2rem);
+    color: $south-bright-yellow-glow;
+    text-shadow: -1px -1px 0 $south-pink-orange, 1px -1px 0 $south-pink-orange, -1px 1px 0 $south-pink-orange, 1px 1px 0 $south-pink-orange;
+}
+
+.west-map{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 33%;
+    top: 45%;
+    max-width: 30%;
+}
+
+.wl-name {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.25vw, 2rem);
+    color: $west-bright-yellow-glow;
+    text-shadow: -1px -1px 0 $west-dark-purple, 1px -1px 0 $west-dark-purple, -1px 1px 0 $west-dark-purple, 1px 1px 0 $west-dark-purple;
+}
+
+.territory-name:hover,
+.territory-name:focus {
+    font-size: clamp(2rem, 2vw, 2rem);
+    cursor: pointer;
+}
+
+// North Map Lands
+.land1North-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    top: 40%;
+}
+
+.land2North-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    right: 15%;
+}
+
+.land3North-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    bottom: 15%;
+    right: 42%;
+}
+
+// .land1North-map:hover,
+// .land1North-map:focus,
+// .land2North-map:hover,
+// .land2North-map:focus,
+// .land3North-map:hover,
+// .land3North-map:focus {
+//     font-size: clamp(2rem, 2vw, 2rem);
+//     max-width: 100%;
+//     cursor: pointer;
+// }
+
+// East Map Lands
+.land1East-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    top: 23%;
+    right: 42%;
+}
+
+.land2East-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    left: 25%;
+    bottom: 18%;
+}
+
+.land3East-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    right: 13%;
+    top: 45%;
+}
+
+// .land1East-map:hover,
+// .land1East-map:focus,
+// .land2East-map:hover,
+// .land2East-map:focus,
+// .land3East-map:hover,
+// .land3East-map:focus {
+//     font-size: clamp(2rem, 2vw, 2rem);
+//     max-width: 100%;
+//     cursor: pointer;
+// }
+
+// South Map Lands
+.land1South-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+}
+
+.land2South-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    right: 32%;
+}
+
+.land3South-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    bottom: 22%;
+    left: 32%;
+}
+
+// .land1South-map:hover,
+// .land1South-map:focus,
+// .land2South-map:hover,
+// .land2South-map:focus,
+// .land3South-map:hover,
+// .land3South-map:focus {
+//     font-size: clamp(2rem, 2vw, 2rem);
+//     max-width: 100%;
+//     cursor: pointer;
+// }
+
+// West Map Lands
+.land1West-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    top: 30%;
+}
+
+.land2West-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    top: 25%;
+    left: 0;
+}
+
+.land3West-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 30%;
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+}
+
+// .land1West-map:hover,
+// .land1West-map:focus,
+// .land2West-map:hover,
+// .land2West-map:focus,
+// .land3West-map:hover,
+// .land3West-map:focus {
+//     font-size: clamp(2rem, 2vw, 2rem);
+//     max-width: 100%;
+//     cursor: pointer;
+// }
+
+.modal-close-btn {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-coin-box {
+    display: flex;
+    // flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    border: 5px solid $yellow;
+    color: $soft-yellow;
+    border-radius: 10px;
+    //border-color: $coin-border;
+    margin: 0px 0px 5px 5px;
+    box-shadow: inset 1px 1px 2px $coin-box-shadow;
+    //border-radius: 3px;
+    margin: 10px;
+    padding: 4px;
+    width: auto;
+    height: auto;
+}
+
+.map-close-btn {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    //float: right;
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(3rem, 3vw, 4rem);
+    color: $north-dark-blue-purple;
+    background-color: $north-light-pink;
+    //float: right;
+    margin: 4px;
+}
+
+.map-close-btn:hover {
+    cursor: pointer;
+    color: $north-light-pink;
+    background-color: $north-dark-blue-purple;
+    box-shadow: 2px 2px 10px 1px $north-bright-white-glow;
+}
+
+.minimap-box {
+    display: none; 
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    width: auto; 
+    height: auto; 
+}
+
+.minimap-img {
+    border: 5px solid $yellow;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.zoom-map-btn {
+    display: flex;
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    color: white;
+    float: right;
+    border-radius: 3px;
+}
+
+.zoom-map-btn:hover,
+.zoom-map-btn:focus {
+    color: $option-button-bg;
+}
