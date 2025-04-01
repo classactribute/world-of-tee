@@ -2,6 +2,8 @@ const mapContainer = document.querySelector(".map-container");
 const mainButtons = document.querySelector(".main-buttons");
 const choiceButtons = document.querySelectorAll(".choice-button");
 const optionButtons = document.querySelectorAll(".option-button");
+const skipBtn = document.getElementById("skip-button");
+const skipAllBtn = document.getElementById("skip-all-button");
 const northButtons = document.querySelector(".north-buttons");
 const eastButtons = document.querySelector(".east-buttons");
 const southButtons = document.querySelector(".south-buttons");
@@ -232,15 +234,19 @@ function skipAnimation() {
     onTypingComplete();
 }
 
-// Make this work eventually
-// function skipBack() {
-//     clearInterval(intervalId);
-//     intervalId = null;
-//     console.log(currentLocation);
-//     console.log(storyTexts);
-//     console.log(storyTexts[currentLocation]);
-//     onTypingComplete();
-// }
+function skipAll() {
+    console.log(currentLocation);
+    clearInterval(intervalId);
+    intervalId = null;
+    openMap();
+    tellMeMore();
+    skipAnimation();
+    console.log(currentLocation);
+    console.log(storyTexts);
+    console.log(storyTexts[currentLocation]);
+    onTypingComplete();
+    skipAllBtn.style.display = "none";
+}
 
 function setScene(location) {
     skipAnimation();
@@ -291,6 +297,7 @@ function exitGame() {
 
 function goBack() {
     console.log("clicked the go back button");
+    clearHUDThemes();
     currentLocation = "world2";
     minimap.style.display = "none";
     mainButtons.style.display = "flex";
@@ -393,18 +400,31 @@ westButtonsAll.forEach(westButton => {
     });
 });
 
+// --- OVERLAY THEMES ---
+function clearHUDThemes() {
+    document.body.classList.remove('theme-north', 'theme-east', 'theme-south', 'theme-west');
+  }
+
+function updateHUDTheme(territory) {
+  clearHUDThemes();
+
+  // Add the new theme class to body (or .hud-overlay)
+  document.body.classList.add(`theme-${territory}`);
+}
+  
+
 // ---INVENTORY MODAL---
 const invModal = document.getElementById("inv-modal");
 const invOpenBtn = document.getElementById("inv-button");
 const invCloseSpan = document.getElementsByClassName("inv-close-btn")[0];
 
-invOpenBtn.onclick = function() {
-    invModal.style.display = "flex";
-}
+invOpenBtn.onclick = function () {
+    invModal.classList.add("open");
+};
 
-invCloseSpan.onclick = function() {
-    invModal.style.display = "none";
-}
+invCloseSpan.onclick = function () {
+    invModal.classList.remove("open");
+};
 
 const inventoryContainer = document.querySelector(".inv-modal-box-container");
 
@@ -444,7 +464,7 @@ document.addEventListener("click", (event) => {
         // targetModal.querySelector(".modal-img").src = modalContent[territoryType].image;
         // targetModal.querySelector(".modal-title").textContent = modalContent[territoryType].title;
         targetModal.querySelector(".modal-desc").textContent = modalContent[territoryType].description;
-        targetModal.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('${modalContent[territoryType].image}')`;
+        targetModal.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.8)), url('${modalContent[territoryType].image}')`;
         targetModal.style.backgroundRepeat = "no-repeat";
         // targetModal.style.backgroundAttachment = "fixed";
         targetModal.style.backgroundSize = "100% 100%";
@@ -509,6 +529,9 @@ function navigateToTerritory(territory, isClosingMap = false) {
     // set title
     const sectionTitle = document.getElementById("section-name");
     sectionTitle.innerHTML = titles[territory];
+
+    // set theme
+    updateHUDTheme(territory);
 
     if (isClosingMap) {
         // ✅ Closing the map and showing the minimap

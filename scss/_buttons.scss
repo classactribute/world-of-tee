@@ -2,37 +2,38 @@
 
 .vt323-button {
     @include button-base();
-    color: $soft-yellow;
-    background-color: $charcoal-dark;
-    border: 2px solid black;
-    box-shadow: 2px 2px 3px 1px black;
+    color: var(--main-btn-text, $soft-yellow);
+    background-color: var(--main-btn-bg, $charcoal-dark);
+    border: var(--main-btn-border, 2px solid black);
+    box-shadow: var(--main-btn-bs, 2px 2px 3px 1px black);
 
     &:hover {
-        background-color: $yellow;
-        color: $charcoal-dark;
+        background-color: var(--main-btn-hover-bg, $yellow);
+        color: var(--main-btn-hover-text, $charcoal-dark);
     }
 }
 
 /* 🔹 Secondary Button */
 .vt323-button-secondary {
     @include button-base();
-    color: $charcoal-dark;
-    background-color: $soft-yellow;
-    border: 1px solid $yellow;
-    box-shadow: 2px 2px 3px 1px $yellow-glow;
+    color: var(--sec-btn-text, $charcoal-dark);
+    background-color: var(--sec-btn-bg, $soft-yellow);
+    border: var(--sec-btn-border, 1px solid $yellow);
+    box-shadow: var(--sec-btn-bs, 2px 2px 3px 1px $yellow-glow);
 
     &:hover {
-        background-color: $yellow;
+        background-color:  var(--sec-btn-hover-bg, $yellow);
+        color: var(--sec-btn-hover-text, $charcoal-dark);
     }
 }
 
 /* 🔹 Inventory Button */
 .inventory-button {
     @include button-base();
-    color: $charcoal-dark;
-    background-color: $charcoal-dark;
+    //color: $charcoal-dark;
+    background-color: var(--inv-bg, $dark-blue);
     //background-image: linear-gradient(180deg, $charcoal, $charcoal-dark);
-    border: 5px solid $yellow;
+    border: var(--inv-border, 5px solid $yellow);
     border-radius: 10px;
     margin: 5px;
     padding: 4px;
@@ -40,7 +41,7 @@
     height: auto;
 
     &:hover {
-        background-color: $light-blue;
-        box-shadow: 2px 2px 5px 1px $bright-yellow-glow;
+        background-color: var(--inv-hover-bg, $light-blue);
+        box-shadow: var(--inv-hover-bs, 2px 5px 1px $bright-yellow-glow);
     }
 }
