@@ -23,7 +23,8 @@
 
     @media (min-width: 768px) {
         display: flex;
-        position: relative;
+        position: fixed;
+        top: 15px;
         justify-content: center;
         align-items: center;
         object-fit: 100% 100%;
