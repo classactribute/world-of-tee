@@ -11,6 +11,11 @@
         background-color: var(--main-btn-hover-bg, $yellow);
         color: var(--main-btn-hover-text, $charcoal-dark);
     }
+
+    &:active {
+        background-color: var(--main-btn-hover-bg, $yellow);
+        color: var(--main-btn-hover-text, $charcoal-dark);
+    }
 }
 
 /* 🔹 Secondary Button */

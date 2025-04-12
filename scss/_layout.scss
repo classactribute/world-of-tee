@@ -72,6 +72,7 @@ p {
     --map-modal-content-color: #{$north-light-yellow};
     --map-modal-coin-border: 3px solid #{$north-purple};
     --map-modal-coin-text: #{$north-light-yellow};
+    --map-modal-coin-bg: #{$north-purple};
 
     --minimap-border: 5px solid #{$north-pink};
     --zoom-map-text: #{$north-dark-blue-purple};
@@ -115,7 +116,7 @@ p {
     --inv-modal-close-hover-color: #{$north-light-yellow};
     --inv-box-bg: #{$north-dark-blue-purple};
     --inv-box-border-color: #{$north-dark-blue-purple};
-    --inv-box-bs: inset 0 0 10px #{$option-button-box-shadow};
+    --inv-box-bs: inset 0 0 0px #{$option-button-box-shadow};
     --inv-item-bg: #{$north-pink};
     --inv-item-border-color: #{$inventory-border};
     --inv-item-text: #{$north-light-yellow};
@@ -148,6 +149,7 @@ p {
     --map-modal-content-color: #{$east-white-glow};
     --map-modal-coin-border: 3px solid #{$east-dark-purple};
     --map-modal-coin-text: #{$east-white-glow};
+    --map-modal-coin-bg: #{$east-dark-purple};
 
     --minimap-border: 5px solid #{$east-light-green};
     --zoom-map-text: #{$east-dark-purple};
@@ -175,7 +177,7 @@ p {
     --coin-box-shadow: inset 1px 1px 2px #{$coin-box-shadow};
     --coin-num-color: #{$east-white-glow};
 
-    --name-border: 5px solid #{v};
+    --name-border: 5px solid #{$east-light-green};
     --name-bg: linear-gradient(180deg, #{$east-dark-purple}, #{$east-dark-green});
 
     --inv-bg: #{$east-dark-purple};
@@ -191,7 +193,7 @@ p {
     --inv-modal-close-hover-color: #{$east-white-glow};
     --inv-box-bg: #{$east-dark-purple};
     --inv-box-border-color: #{$east-dark-purple};
-    --inv-box-bs: inset 0 0 10px #{$option-button-box-shadow};
+    --inv-box-bs: inset 0 0 0px #{$option-button-box-shadow};
     --inv-item-bg: #{$east-light-green};
     --inv-item-border-color: #{$inventory-border};
     --inv-item-text: #{$east-dark-purple};
@@ -224,6 +226,7 @@ p {
     --map-modal-content-color: #{$south-bright-yellow-glow};
     --map-modal-coin-border: 3px solid #{$south-dark-purple};
     --map-modal-coin-text: #{$south-bright-yellow-glow};
+    --map-modal-coin-bg: #{$south-pink-orange};
 
     --minimap-border: 5px solid #{$south-bright-yellow-glow};
     --zoom-map-text: #{$south-bright-yellow-glow};
@@ -267,7 +270,7 @@ p {
     --inv-modal-close-hover-color: #{$south-dark-purple};
     --inv-box-bg: #{$south-blue};
     --inv-box-border-color: #{$south-dark-purple};
-    --inv-box-bs: inset 0 0 10px #{$option-button-box-shadow};
+    --inv-box-bs: inset 0 0 0px #{$option-button-box-shadow};
     --inv-item-bg: #{$south-pink-orange};
     --inv-item-border-color: #{$inventory-border};
     --inv-item-text: #{$south-bright-yellow-glow};
@@ -300,6 +303,7 @@ p {
     --map-modal-content-color: #{$west-bright-blue-glow};
     --map-modal-coin-border: 3px solid #{$west-dark-pink};
     --map-modal-coin-text: #{$west-bright-blue-glow};
+    --map-modal-coin-bg: #{$west-light-pink};
 
     --minimap-border: 5px solid #{$west-dark-pink};
     --zoom-map-text: #{$north-dark-blue-purple};
@@ -341,8 +345,8 @@ p {
     --inv-modal-close-color: #{$west-orange};
     --inv-modal-close-hover-color: #{$west-dark-purple};
     --inv-box-bg: #{$west-orange};
-    --inv-box-border-color: #{$west-dark-purple};
-    --inv-box-bs: inset 0 0 10px #{$option-button-box-shadow};
+    --inv-box-border-color: #{$west-orange};
+    --inv-box-bs: inset 0 0 0px #{$option-button-box-shadow};
     --inv-item-bg: #{$west-dark-pink};
     --inv-item-border-color: #{$inventory-border};
     --inv-item-text: #{$west-bright-blue-glow};
@@ -413,25 +417,72 @@ p {
     align-items: center;
     box-shadow: inset 0 0 10px $box-shadow-dark;
     width: 100%;
+    margin-top: 150px;
 }
 
 .section-header {
     display: flex;
+    z-index: 10;
     flex-direction: column;
     position: relative;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 1152px;
+    height: auto;
 }
 
 .subsection-nav {
     display: flex;
-    flex-direction: row;
-    position: relative;
+    position: fixed;
+    top: 7%;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    border: var(--text-border, 5px solid $yellow);
+    border-radius: 10px;
+    background-image: var(--text-bg, linear-gradient(180deg, $neon-pink, $dark-blue));
+    box-shadow: inset 2px 2px 4px 1px rgba(0, 0, 0, 0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+    width: 40%;
+    height: auto;
 }
+
+.subsection-textbox {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--text-nav-bg, $charcoal-dark);
+    color: var(--text-color, $yellow);
+    margin: auto;
+    padding: 8px;
+    border: var(--text-nav-border, 2px solid $yellow);
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 4px 1px rgba(0, 0, 0, 0.5);
+    width: 95%;
+    //min-height: 120px;
+    overflow-y: auto;
+}
+
+.subsection-tabs {
+    display: flex;
+    flex-direction: row;
+}
+
+.active {
+    background-color: var(--main-btn-hover-bg, $yellow);
+    color: var(--main-btn-hover-text, $charcoal-dark);
+}
+
+.subsection-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(173, 255, 203, 0.1);
+  }
 
 .north-body {
     display: flex;
@@ -472,6 +523,16 @@ p {
     border: var(--map-border, 5px solid $yellow);
     border-radius: 10px;
     margin: auto;
+}
+
+.vt323-text {
+    color: var(--text-color, $bright-cyan);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-family: "VT323", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.2rem, 1.2vw, 2rem);
+    padding: 10px;
 }
 
 .text-nav {
@@ -519,9 +580,9 @@ p {
     display: block;
     justify-content: center;
     align-items: center;
-    background-color: var(--inv-modal-bg, $dark-pink);
+    background-color: var(--inv-modal-bg, $dark-blue);
     border-style: solid;
-    border-color: var(--inv-modal-border-color, $yellow);
+    border-color: var(--inv-modal-border-color, $lighter-pink);
     border-top-width: 1px;
     border-left-width: 1px;
     border-radius: 5px;
@@ -535,7 +596,7 @@ p {
     font-weight: 800;
     font-style: normal;
     font-size: clamp(1.25rem, 1.5625vw, 2rem);
-    color: var(--inv-modal-text, $yellow);
+    color: var(--inv-modal-text, $lighter-pink);
     justify-self: center;
     margin: 6px;
 }
@@ -545,7 +606,7 @@ p {
     font-weight: 800;
     font-style: normal;
     font-size: clamp(1.25rem, 1.5625vw, 2rem);
-    color: var(--inv-modal-close-color, $yellow);
+    color: var(--inv-modal-close-color, $lighter-pink);
     float: right;
     margin: 4px;
 }
@@ -559,14 +620,14 @@ p {
 
 .inv-modal-box-container {
     display: grid;
-    color: var(--inv-item-text, $dark-blue);
-    background-color: var(--inv-box-bg, $yellow);
+    color: var(--inv-item-text, $lighter-pink);
+    background-color: var(--inv-box-bg, $lighter-pink);
     border-radius: 2px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
+    // border-right-width: 1px;
+    // border-bottom-width: 1px;
     border-style: solid;
     border-color: var(--inv-box-border-color, $yellow);
-    box-shadow: var(--inv-box-bs, inset 0 0 10px $option-button-box-shadow);
+    box-shadow: var(--inv-box-bs, inset 0 0 0px $option-button-box-shadow);
     grid-template-columns: repeat(auto-fill, minmax(2.2rem, 1fr));
     grid-auto-rows: 1fr;
     margin: 7px;
@@ -586,7 +647,7 @@ p {
 }
   
 .inv-modal-box-container > * {
-    background: var(--inv-item-bg, $dark-pink);
+    background: var(--inv-item-bg, $dark-blue);
     margin: 4px;
     border-radius: 2px;
     border-color: var(--inv-item-border-color, $yellow);
@@ -875,7 +936,7 @@ p {
     display: flex;
     justify-items: center;
     align-items: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    background: var(--map-modal-coin-bg, $dark-blue);
     border: var(--map-modal-coin-border, 3px solid $yellow);
     color: var(--map-modal-coin-text, $soft-yellow);
     border-radius: 10px;
@@ -915,7 +976,7 @@ p {
     display: none; 
     position: fixed;
     top: 1%;
-    right: 1%;
+    right: 5px;
     z-index: 10;
     justify-content: center;
     align-items: center;
@@ -962,3 +1023,236 @@ p {
 // .inventory-modal.glitch-open {
 // animation: glitchSlide 0.5s ease-out forwards;
 // }
+
+// [tabindex="0"]:focus {
+//     outline: 2px dashed gold;
+//     outline-offset: 4px;
+// }
+
+.origin-story-box {
+    background: rgba(0, 0, 0, 0.6); // semi-transparent for depth
+    border-left: 4px solid $east-pink; // soft green moss glow
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    color: $east-white-glow; // soft mint text
+    font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+    line-height: 1.6;
+    box-shadow: 0 0 10px rgba(144, 238, 144, 0.4); // subtle green glow
+    border-radius: 8px;
+
+    h4 {
+        color: $east-pink;
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
+.story-block {
+    background: rgba(0, 0, 0, 0.6); // semi-transparent for depth
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 0 12px rgba(50, 255, 200, 0.1);
+  
+    position: relative;
+    overflow: hidden;
+  
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(50, 255, 200, 0.3);
+    }
+  
+    h4 {
+      color: $east-pink;
+      font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+  
+    p {
+      line-height: 1.6;
+      color: $east-white-glow;
+      font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+      font-size: 1rem;
+    }
+  
+    &::before {
+      content: "";
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #aefce0;
+      box-shadow: 0 0 10px #aefce0;
+      margin: 0 auto 1rem;
+    }
+}
+
+.firefly {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: $east-white-glow;
+    box-shadow: 0 0 10px $east-white-glow;
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+    opacity: 0.8;
+}
+  
+@keyframes float {
+    0% { transform: translateY(0) translateX(0); opacity: 0.2; }
+    50% { transform: translateY(-30px) translateX(10px); opacity: 1; }
+    100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+}
+
+.origin-vine-left {
+    position: absolute;
+    left: 10px; /* adjust as necessary */
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, $east-pink, $east-dark-purple);
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 2px rgba(51,153,102,0.75);
+    animation: growVine 4s ease-in-out;
+}
+
+.origin-vine-right {
+    position: absolute;
+    right: 10px; /* adjust as necessary */
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, $east-pink, $east-dark-purple);
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 2px rgba(51,153,102,0.75);
+    animation: growVine 4s ease-in-out;
+}
+  
+@keyframes growVine {
+    0% { height: 0; }
+    100% { height: 100%; }
+}
+  
+.closing-line {
+    margin-top: 2rem;
+    text-align: center;
+    font-style: italic;
+    color: #b3ffe8;
+    font-size: 1.1rem;
+}
+  
+
+.story-block::before {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: $east-dark-green;
+    box-shadow: 0 0 8px $east-dark-green;
+    margin: 0 auto 0.5rem;
+}
+
+// CV MODAL / SCROLL
+// Optional button style
+.glow-btn {
+    background-color: $east-pink;
+    color: $east-white-glow;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px $east-pink;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px $east-pink;
+    }
+  }
+  
+  // Modal backdrop
+  .scroll-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 100%;
+    background: url('/assets/images/scroll.png');
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  // Hide by default
+  .hidden {
+    display: none;
+  }
+  
+  // Scroll content area
+  .scroll-content {
+    position: relative;
+    max-width: 800px;
+    width: 90%;
+    animation: fadeInScroll 0.6s ease-out;
+  }
+  
+  // Glowing scroll image
+  .scroll-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 10px $east-light-green);
+    border-radius: 2rem;
+  }
+  
+  // Text on top of scroll
+  .cv-text {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    overflow-y: auto;
+    color: $east-white-glow;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px $east-dark-green;
+  }
+  
+  // Close button
+  .close-cv-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    color: $east-pink;
+    font-size: 5rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  @keyframes fadeInScroll {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

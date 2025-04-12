@@ -27,17 +27,11 @@
         align-items: center;
         border: var(--text-border, 5px solid $yellow);
         border-radius: 10px;
-        // border-top-width: 1px;
-        // border-left-width: 1px;
         background-image: var(--text-bg, linear-gradient(180deg, $neon-pink, $dark-blue));
-        //box-shadow: 2px 2px 10px 1px $bright-yellow-glow;
         box-shadow: inset 2px 2px 4px 1px rgba(0, 0, 0, 0.5);
         padding-top: 10px;
-        // padding-right: 15px;
         padding-bottom: 10px;
-        // padding-left: 5px;
         margin: auto;
-        //max-width: 80%;
         width: 80%;
         height: auto;
     }
@@ -56,7 +50,6 @@
         border-radius: 10px;
         box-shadow: inset 2px 2px 4px 1px rgba(0, 0, 0, 0.5);
         width: 100%;
-        //min-height: 120px;
         overflow-y: auto;
     }
 }
