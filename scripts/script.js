@@ -23,6 +23,9 @@ const northButtons = document.querySelector(".north-buttons");
 const eastButtons = document.querySelector(".east-buttons");
 const southButtons = document.querySelector(".south-buttons");
 const westButtons = document.querySelector(".west-buttons");
+const contactModal = document.getElementById("contact-mdl");
+const contactOpenBtn = document.getElementById("contact-open-btn");
+const contactCloseBtn = document.getElementById("contact-close-btn");
 const invModal = document.getElementById("inv-modal");
 const invOpenBtn = document.getElementById("inv-button");
 const invCloseSpan = document.querySelector(".inv-close-btn");
@@ -72,6 +75,8 @@ export function animateText(text) {
     const direction = getDirection[state.currentLocation];
     const currentSubNav = document.querySelector(`.${direction}-subsection-textbox`);
     const textLength = text.length;
+    skipButton.style.visibility = "visible";
+    skipAllBtn.style.visibility = "visible";
 
     allSubNavs.forEach(el => el.textContent = "");
     navText.textContent = "";
@@ -101,19 +106,24 @@ function onTypingComplete() {
         moreButton.style.visibility = "visible";
     } else if (state.currentLocation === "world2") {
         mainButtons.style.display = "flex";
-    } 
+        skipAllBtn.style.visibility = "hidden";
+    }
+    skipButton.style.visibility = "hidden";
 }
 
 // --- SKIP ANIMATION BUTTONS ---
 function skipAnimation() {
+    console.log("skip animation: ", state.currentLocation);
     clearInterval(intervalId);
     intervalId = null;
     navText.textContent = storyTexts[state.currentLocation];
+    skipButton.style.visibility = 'hidden';
     onTypingComplete();
 }
 
 skipButton.addEventListener("click", skipAnimation);
 skipAllBtn.addEventListener("click", () => {
+    console.log("skip all animation: ", state.currentLocation);
     clearInterval(intervalId);
     intervalId = null;
     setScene("world1");
@@ -134,6 +144,7 @@ export function setScene(location) {
         mapContainer.style.visibility = "visible";
     } else if (state.currentLocation === "world2") {
         moreButton.style.visibility = "hidden";
+        onTypingComplete();
     }  else if (["north", "east", "south", "west"].includes(state.currentLocation)) {
         navigateToTerritory(state.currentLocation);
     }
@@ -141,7 +152,7 @@ export function setScene(location) {
 }
 
 // --- SUBSECTION DISPLAY HANDLER ---
-function showSubsection(location) {
+export function showSubsection(location) {
     state.currentLocation = location;
     const subsection = document.getElementById(`${state.currentLocation}-subsection`);
     const allSubsections = document.getElementsByClassName("subsection");
@@ -189,7 +200,7 @@ function setupTerritoryListeners(direction) {
 }
 
 // --- SETUP TERRITORY TABS --- 
-function setupTabs(direction) {
+export function setupTabs(direction) {
     const subsectionNavBtns = document.querySelectorAll(`.${direction}-subsection-button`);
     const mapCont = document.querySelector(`.${direction}-map-container`);
     const body = document.querySelector(`.${direction}-body`);
@@ -239,6 +250,18 @@ function goBack() {
     setScene("world2");
 }
 
+// --- Contact Me Modal ---
+const contactNav = document.getElementById("contact-nav-cont");
+
+contactOpenBtn.addEventListener("click", () => {
+    contactModal.classList.remove("hidden");
+    contactNav.classList.add("animate");
+});
+contactCloseBtn.addEventListener("click", () => {
+    contactModal.classList.add("hidden");
+    contactNav.classList.remove("animate");
+});
+
 // --- Inventory Modal ---
 invOpenBtn.addEventListener("click", () => invModal.classList.add("open"));
 invCloseSpan.addEventListener("click", () => invModal.classList.remove("open"));
@@ -266,4 +289,41 @@ openCVBtn.addEventListener("click", () => {
 
 closeCVBtn.addEventListener("click", () => {
   cvModal.classList.add("hidden");
+});
+
+// --- TREE FRACTAL ---
+function drawTree(ctx, startX, startY, length, angle, branchWidth, color1, color2) {
+    ctx.beginPath();
+    ctx.save();
+
+    ctx.strokeStyle = color1;
+    ctx.fillStyle = color2;
+    ctx.shadowBlur = 2;
+    ctx.shadowColor = "#FECBF1";
+    ctx.lineWidth = branchWidth;
+
+    ctx.translate(startX, startY);
+    ctx.rotate(angle * Math.PI / 180);
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+
+    if (length < 10) {
+        ctx.restore();
+        return;
+    }
+
+    drawTree(ctx, 0, -length, length * 0.7, angle - 20, branchWidth * 0.7, color1, color2);
+    drawTree(ctx, 0, -length, length * 0.7, angle + 20, branchWidth * 0.7, color1, color2);
+
+    ctx.restore();
+}
+
+window.addEventListener('load', () => {
+    const canvas = document.getElementById('recursive-tree');
+    const ctx = canvas.getContext('2d');
+
+    // Clear and draw
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawTree(ctx, canvas.width / 2, canvas.height - 80, 120, 0, 10, '#FA67D1', '#F7F3B7');
 });
