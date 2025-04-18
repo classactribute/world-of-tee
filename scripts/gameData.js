@@ -80,84 +80,84 @@ export const modalContent = {
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land1North: {
+    nl1: {
         title: "The Algorithm Hills",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "A retro sanctuary of logic and patterns.",
         image: "assets/north-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land2North: {
+    nl2: {
         title: "The Framework Forge",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Discover the frameworks and tech stacks I've worked with.",
         image: "assets/north-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land3North: {
+    nl3: {
         title: "The API Crossroads",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Exploring projects that integrate APIs to fetch and manipulate data.",
         image: "assets/north-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land1East: {
+    el1: {
         title: "The Origin Grove",
         description: "Where seeds of curiosity took root and a new path began.",
         image: "assets/east-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land2East: {
+    el2: {
         title: "The Learning Bridge",
         description: "Crossing from confusion to clarity, one small \"aha\" at a time.",
         image: "assets/east-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land3East: {
+    el3: {
         title: "The Reflection Tower",
         description: "From burnout to diagnosis, this is where I reflect on what it means to build a career as a late-diagnosed neurodivergent woman in tech — and how I’m learning to shape a space that fits me.",
         image: "assets/east-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land1South: {
+    sl1: {
         title: "The Puzzle Workshop",
         description: "A collection of forgotten files, secret projects, and things left behind.",
         image: "assets/south-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land2South: {
+    sl2: {
         title: "The Expression Pavilion",
         description: "A collection of forgotten files, secret projects, and things left behind.",
         image: "assets/south-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land3South: {
+    sl3: {
         title: "The Concept Forge",
         description: "A collection of forgotten files, secret projects, and things left behind.",
         image: "assets/south-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land1West: {
+    wl1: {
         title: "The Forgotten Files",
         description: "A collection of forgotten files, secret projects, and things left behind.",
         image: "assets/west-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land2West: {
+    wl2: {
         title: "The Easter Egg Vault",
         description: "A collection of forgotten files, secret projects, and things left behind.",
         image: "assets/west-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
-    land3West: {
+    wl3: {
         title: "The Unfinished Abyss",
         description: "A collection of forgotten files, secret projects, and things left behind.",
         image: "assets/west-mini.png",

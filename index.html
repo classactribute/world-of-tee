@@ -8,9 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+    <div id="contact-nav-cont" class="contact-nav">
+        <img src="assets/images/bnmtrans3.png" alt="Story Book" class="benny-tee">
+        <button type="button" airel-label="Contact Me" class="contact-btn vt323-button-secondary" id="contact-open-btn">Contact Me</button>
+    </div>
+
         <!-- Main Map Section -->
         <div class="map-container" id="main-map-container">
             <img class="main-map" src="assets/island5.webp" alt="World Map" id="main-map-id">
@@ -31,6 +37,7 @@
                             <div class="modal-inv-info" data-territory="north"></div>
                         </aside>
                         <p class="modal-desc"></p>
+                        <button type="button" aria-label="Go North" class="north-modal-button vt323-button">Explore</button>
                     </div>
                 </div>
              </div>
@@ -50,6 +57,7 @@
                             <div class="modal-inv-info" data-territory="east"></div>
                         </aside>
                         <p class="modal-desc"></p>
+                        <button type="button" aria-label="Go East" class="east-modal-button vt323-button">Explore</button>
                     </div>
                 </div>
              </div>
@@ -69,6 +77,7 @@
                             <div class="modal-inv-info" data-territory="south"></div>
                         </aside>
                         <p class="modal-desc"></p>
+                        <button type="button" aria-label="Go South" class="south-modal-button vt323-button">Explore</button>
                     </div>
                 </div>
              </div>
@@ -88,6 +97,7 @@
                             <div class="modal-inv-info" data-territory="west"></div>
                         </aside>
                         <p class="modal-desc"></p>
+                        <button type="button" aria-label="Go West" class="west-modal-button vt323-button">Explore</button>
                     </div>
                 </div>
              </div>
@@ -102,7 +112,7 @@
                         <nav class="subsection-nav">
                             <span class="subsection-textbox north-subsection-textbox vt323-text"></span>
                             <div class="subsection-tabs">
-                                <button class="north-subsection-button north-button nl1-button-nav vt323-button" data-target="algorithmic-hills" id="nl1-button-nav">Algorithmic Hills</button>
+                                <button class="north-subsection-button north-button nl1-button-nav vt323-button" data-target="algorithmic-hills" data-name="first-tab" id="nl1-button-nav">Algorithmic Hills</button>
                                 <button class="north-subsection-button north-button nl2-button-nav vt323-button" data-target="framework-forge" id="nl2-button-nav">Framework Forge</button>
                                 <button class="north-subsection-button north-button nl3-button-nav vt323-button" data-target="api-crossroads" id="nl3-button-nav">API Crossroads</button>
                                 <button class="back-button-nav vt323-button">⬅️</button>
@@ -113,27 +123,63 @@
                     <!-- Algorithmic Hills (Problem-Solving & Coding Challenges) -->
                     <section id="nl1-subsection" class="subsection hidden">
                         <div class="subsection-content">
-                            <h3>The Algorithmic Hills</h3>
+                            <!-- <h3>The Algorithmic Hills</h3>
                             <p>
-                                A retro sanctuary of logic and patterns. I'm just getting started on my algorithm journey,
-                                so here's a peek at my first attempt to solve coding puzzles.
+                                A retro sanctuary of logic and patterns.
                             </p>
-    
+                             -->
                             <div class="code-showcase">
-                                <h4>Code Example: Optimizing a Search Algorithm</h4>
-                                <pre><code>
-                                    def binary_search(arr, target):
-                                    left, right = 0, len(arr) - 1
-                                    while left <= right:
-                                    mid = (left + right) // 2
-                                    if arr[mid] == target:
-                                        return mid
-                                    elif arr[mid] < target:
-                                        left = mid + 1
-                                    else:
-                                        right = mid - 1
-                                    return -1
-                                </code></pre>
+                                <img class="crt-img" src="assets/images/screenonly2.webp" alt="CRT Monitor">
+                                <div class="crt-content">
+                                    <!-- <h4>Code Example: Optimizing a Search Algorithm</h4> -->
+                                    <pre><code>
+STARTING MS-DOS...
+
+function drawTree(ctx, startX, startY, length, angle, 
+branchWidth, color1, color2) {
+
+    ctx.beginPath();
+    ctx.save();
+
+    ctx.strokeStyle = color1;
+    ctx.fillStyle = color2;
+    ctx.shadowBlur = 2;
+    ctx.shadowColor = "#FECBF1";
+    ctx.lineWidth = branchWidth;
+
+    ctx.translate(startX, startY);
+    ctx.rotate(angle * Math.PI / 180);
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+
+    if (length < 10) {
+        ctx.restore();
+        return;
+    }
+
+    drawTree(ctx, 0, -length, length * 0.7, angle - 20, 
+    branchWidth * 0.7, color1, color2);
+    drawTree(ctx, 0, -length, length * 0.7, angle + 20, 
+    branchWidth * 0.7, color1, color2);
+
+    ctx.restore();
+}
+
+window.addEventListener('load', () => {
+    const canvas = document.getElementById('recursive-tree');
+    const ctx = canvas.getContext('2d');
+
+    // Clear and draw
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawTree(ctx, canvas.width / 2, 
+            canvas.height - 80, 120, 0, 10, '#FA67D1', '#F7F3B7');
+});
+
+C:\>_
+                                    </code></pre>
+                                    <canvas id="recursive-tree" width="800" height="600"></canvas>
+                                </div>
                             </div>
     
                             <div class="project-links">
@@ -145,28 +191,87 @@
                     <!-- Framework Forge (Tech Stack & Portfolio Walkthroughs) -->
                     <section id="nl2-subsection" class="subsection hidden">
                         <div class="subsection-content">
-                            <h3>The Framework Forge</h3>
-                            <p>Discover the frameworks and tech stacks I've worked with.Discover the frameworks and tech stacks I've worked with.</p>
-    
-                            <div class="framework-list">
-                                <div class="framework-card">
-                                    <h4>Django</h4>
-                                    <p>Built custom backends for projects with Django ORM.</p>
+                            <section class="forge-section frameworks">
+                                <h3 class="forge-section-title">Frameworks</h3>
+                                <div class="framework-list">
+                                    <div class="item">
+                                        <h4 class="item-title">Django</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">React</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">Wordpress</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">Bootstrap</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">ASP.NET</h4>
+                                    </div>
                                 </div>
-                                <div class="framework-card">
-                                    <h4>React</h4>
-                                    <p>Interactive UI development with component-based architecture.</p>
+                            </section>
+                            <section class="forge-section tools">
+                                <h3 class="forge-section-title">Tools</h3>
+                                <div class="framework-list">
+                                    <div class="item">
+                                        <h4 class="item-title">GitBash PS Cmd</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">GitHub Bitbucket</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">MySQL PHPMyAdmin</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">WAMP MAMP WPEngine CPanel Docker</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">VSCode PHPStorm VS NetBeans</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">Screaming Frog</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">Wrike / Trello</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">Discord / Slack</h4>
+                                    </div>
                                 </div>
-                            </div>
+                            </section>
+                            <section class="forge-section languages">
+                                <h3 class="forge-section-title">Languages</h3>
+                                <div class="framework-list">
+                                    <div class="item">
+                                        <h4 class="item-title">PHP</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">Python</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">JavaScript</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">Java</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">C / C++ / C#</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">HTML</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="item-title">CSS SCSS/Sass</h4>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </section>
 
                     <!-- API Crossroads (API-Based Projects) -->
                     <section id="nl3-subsection" class="subsection hidden">
-                        <div class="subsection-content">
-                            <h3>The API Crossroads</h3>
-                            <p>Exploring projects that integrate APIs to fetch and manipulate data.Exploring projects that integrate APIs to fetch and manipulate data.</p>
-    
+                        <div class="subsection-content">    
                             <div class="api-example">
                                 <h4>Weather Dashboard</h4>
                                 <p>Using OpenWeather API to display real-time weather updates.</p>
@@ -182,11 +287,11 @@
                 <button id="close-north-map" type="button" class="map-close-btn">&times;</button>
                 <!-- Lands -->
                 <!-- The Algorithmic Hills -->
-                 <div class="land1North-map">
-                    <div class="territory-name nl-name" aria-label="Enter The Algorithmic Hills" role="button" tabindex="0" data-territory="land1North">
+                 <div class="nl1-map">
+                    <div class="territory-name nl-name" aria-label="Enter The Algorithmic Hills" role="button" tabindex="0" data-territory="nl1">
                         The Algorithmic Hills
                     </div>
-                    <div id="land1North-modal" class="map-modal north-map-modal">
+                    <div id="nl1-modal" class="map-modal north-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -197,16 +302,17 @@
                                 <div class="modal-inv-info" data-territory="nl1"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Algorithmic Hills" class="nl1-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                     
                  </div>
                 <!-- The Framework Forge -->
-                 <div class="land2North-map">
-                    <div class="territory-name nl-name" aria-label="Enter The Framework Forge" role="button" tabindex="0" data-territory="land2North">
+                 <div class="nl2-map">
+                    <div class="territory-name nl-name" aria-label="Enter The Framework Forge" role="button" tabindex="0" data-territory="nl2">
                         The Framework Forge
                     </div>
-                    <div id="land2North-modal" class="map-modal north-map-modal">
+                    <div id="nl2-modal" class="map-modal north-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -217,15 +323,16 @@
                                 <div class="modal-inv-info" data-territory="nl2"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Framework Forge" class="nl2-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
                 <!-- The API Crossroads -->
-                 <div class="land3North-map"> 
-                    <div class="territory-name nl-name" aria-label="Enter The API Crossroads" role="button" tabindex="0" data-territory="land3North">
+                 <div class="nl3-map"> 
+                    <div class="territory-name nl-name" aria-label="Enter The API Crossroads" role="button" tabindex="0" data-territory="nl3">
                         The API Crossroads
                     </div>
-                    <div id="land3North-modal" class="map-modal north-map-modal">
+                    <div id="nl3-modal" class="map-modal north-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -236,6 +343,7 @@
                                 <div class="modal-inv-info" data-territory="nl3"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The API Crossroads" class="nl3-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
@@ -263,7 +371,7 @@
                         <nav class="subsection-nav">
                             <span class="subsection-textbox east-subsection-textbox vt323-text"></span>
                             <div class="subsection-tabs">
-                                <button class="east-subsection-button east-button el1-button-nav vt323-button" data-target="origin-grove" id="el1-button-nav">The Origin Grove</button>
+                                <button class="east-subsection-button east-button el1-button-nav vt323-button" data-target="origin-grove" data-name="first-tab" id="el1-button-nav">The Origin Grove</button>
                                 <button class="east-subsection-button east-button el2-button-nav vt323-button" data-target="learning-bridge" id="el2-button-nav">The Learning Bridge</button>
                                 <button class="east-subsection-button east-button el3-button-nav vt323-button" data-target="reflection-tower" id="el3-button-nav">The Reflection Tower</button>
                                 <button class="back-button-nav vt323-button">⬅️</button>
@@ -275,38 +383,96 @@
                     <section id="el1-subsection" class="subsection hidden">
                         <div class="subsection-content">
                             <div class="origin-story-box story-card">
-                                <div>
-                                    <h4>From [Past Experience] to Developer</h4>
-                                    <button id="open-cv-btn" class="glow-btn">📜 View Full CV</button>
-
-                                    <div id="cv-scroll-modal" class="scroll-modal hidden">
-                                    <div class="scroll-content">
-                                        <!-- <img src="assets/images/glow-scroll.png" alt="Glowing Scroll" class="scroll-bg"> -->
-                                        <div class="cv-text">
-                                        <!-- You can style this however you want -->
-                                        <h3>Employment History</h3>
-                                        <p><strong>DevOps & Backend Developer</strong> – Atypic (Aug 2021 – Sept 2024)</p>
-                                        <ul>
-                                            <li>Managed Bitbucket repos and pipelines</li>
-                                            <li>Built custom WordPress theme</li>
-                                            <li>Handled DNS/server infrastructure</li>
-                                            <!-- etc -->
-                                        </ul>
-
-                                        <!-- Add more sections here like Education, Tools, etc. -->
+                                <div class="story-book">
+                                    <img src="assets/images/book.png" alt="Story Book" class="book-bg">
+                                    <div class="story-book-content">
+                                        <div class="left-page">
+                                            <p>A long time ago, I thought programming was a world reserved for the elite — a university-only realm that someone like me, a single mom with a history of burnout and no formal degree despite <a href="#">my efforts</a>, could never step into.</p>
                                         </div>
-                                        <button id="close-cv-btn" class="close-cv-btn">&times;</button>
-                                    </div>
+                                        <div class="right-page">
+                                            <p>But I’ve always been deeply curious. I find rest in solving puzzles, joy in connecting patterns, and purpose in pulling order from chaos. That quiet drive stayed with me through years of unconventional paths — from reverse-engineering CAD layouts in trade show logistics, to handling massive amounts of project detail with precision, passion, and not nearly enough pay.</p>
+                                        </div>
+                                        <button id="next-page-bk-btn" class="next-page-book-btn">>></button>
+                                        <!-- <p>Then one day, while working in marketing for a web dev company, something clicked. I was supposed to help explain programming to the public… but instead, I fell in love with it. The devs around me were kind. They took the time to explain things. And for once, I felt like I wasn’t the “alien” in the room.</p>
+                                        <p>The world conspired to nudge me forward: the pandemic hit, remote learning became an option, and the government fully funded a 12-month intensive program in full-stack development. I jumped in headfirst. I studied like it was my lifeline — and in many ways, it was. Of 40+ students, only a dozen finished. I was one of them.</p>
+                                        <p>Since then, I’ve built projects I’m proud of. I’ve discovered my neurodivergence — ADHD and autism — and have been learning what it means to thrive, not just survive. I’ve worked professionally in dev roles. And now I’m here, building my own interactive world to showcase what I’ve learned and what I’m still learning.</p>
+                                        <p>This isn’t just a portfolio.</p>
+                                        <p>It’s my journey, made visible.</p> -->
                                     </div>
                                 </div>
+                                
+                                <button id="open-cv-btn" class="glow-btn">📜 View Full CV</button>
 
-                                <p>A long time ago, I thought programming was a world reserved for the elite — a university-only realm that someone like me, a single mom with a history of burnout and no formal degree despite <a href="#">my efforts</a>, could never step into.</p>
-                                <p>But I’ve always been deeply curious. I find rest in solving puzzles, joy in connecting patterns, and purpose in pulling order from chaos. That quiet drive stayed with me through years of unconventional paths — from reverse-engineering CAD layouts in trade show logistics, to handling massive amounts of project detail with precision, passion, and not nearly enough pay.</p>
-                                <p>Then one day, while working in marketing for a web dev company, something clicked. I was supposed to help explain programming to the public… but instead, I fell in love with it. The devs around me were kind. They took the time to explain things. And for once, I felt like I wasn’t the “alien” in the room.</p>
-                                <p>The world conspired to nudge me forward: the pandemic hit, remote learning became an option, and the government fully funded a 12-month intensive program in full-stack development. I jumped in headfirst. I studied like it was my lifeline — and in many ways, it was. Of 40+ students, only a dozen finished. I was one of them.</p>
-                                <p>Since then, I’ve built projects I’m proud of. I’ve discovered my neurodivergence — ADHD and autism — and have been learning what it means to thrive, not just survive. I’ve worked professionally in dev roles. And now I’m here, building my own interactive world to showcase what I’ve learned and what I’m still learning.</p>
-                                <p>This isn’t just a portfolio.</p>
-                                <p>It’s my journey, made visible.</p>
+                                <div id="cv-scroll-modal" class="scroll-modal hidden">
+                                    <div class="scroll-content vt323-text">
+                                        <div>
+                                            <h3>DevOps & Backend Developer - Atypic</h3>
+                                            <h4>Aug 2021 – Sept 2024</h4>
+                                            <ul>
+                                                <li>Developed and maintained backend functionality for WordPress websites, primarily using PHP.</li>
+                                                <li>Created and managed Bitbucket repositories and built deployment pipelines.</li>
+                                                <li>Configured and managed multi-environment setups.</li>
+                                                <li>Built and deployed a custom WordPress theme tailored to company needs.</li>
+                                                <li>Managed hosting and DNS configurations, ensuring seamless website performance and uptime.</li>
+                                                <li>Collaborated closely with a team to deliver high-quality web solutions.</li>
+                                                <li>Responsible for all backend development and infrastructure tasks.</li>
+                                                <li>Create and maintain documentation during development cycle.</li>
+                                                <li>Participate in daily scrum.</li>
+                                            </ul>
+                                            <h3>Tools & Skills</h3>
+                                            <p><strong>DevOps & Backend Developer</strong> – Atypic (Aug 2021 – Sept 2024)</p>
+                                            <ul>
+                                                <li><strong>Programming: </strong>Wordpress, PHP</li>
+                                                <li><strong>Database: </strong>MySQL, PHPmyadmin</li>
+                                                <li><strong>DevOps: </strong>Git, GitBash, Bitbucket / Github</li>
+                                                <li><strong>Server: </strong>WAMP, LocalWP, WPEngine, CPanel</li>
+                                                <li><strong>Management: </strong>ManageWP, UptimeRobot</li>
+                                                <li><strong>IDE: </strong>JetBrains - PHPStorm, DataGrip</li>
+                                                <li><strong>PMS: </strong>Wrike</li>
+                                                <li><strong>SEO: </strong>Screaming Frog</li>
+                                                <li><strong>Communication: </strong>Teams, Slack, Discord</li>
+                                            </ul>
+                                            <h3>Internet Programming and Development (A.E.C) - John Abbott College</h3>
+                                            <h4>2020-2021</h4>
+                                            <p>One year instensive bootcamp style program for full-stack programming and development in HTML/CSS, Javascript, Java, PHP, .NET, C, ASP.NET, Web Design and Services, npm, Git, Trello, as well as the basics in hardware and networking.</p>
+                                            <h3>Digital Strategist - SimplyPHP</h3>
+                                            <h4>Dec 2018 – Jun 2019</h4>
+                                            <ul>
+                                                <li>Strategizing the direction of marketing, creative content and advertisement.</li>
+                                                <li>Creating, producing and managing video and audio podcasts, clips and other content.</li>
+                                                <li>Participating in video and audio podcasts.</li>
+                                                <li>Managing all video and audio content on social media platforms (YouTube, Spotify, LinkedIn, Instagram, Twitter…)</li>
+                                                <li>Writing and overseeing website content.</li>
+                                                <li>Writing, editing and managing posts, articles and comments.</li>
+                                                <li>Creating and managing a team of freelance writers, video editors and graphic designer.</li>
+                                                <li>Assisting with office management.</li>
+                                            </ul>
+                                            <h3>Project Assistant / Cooridinator - Skyline Entourage</h3>
+                                            <h4>Oct. 2017 – Dec 2018</h4>
+                                            <p><strong>Responsibilities for Assistant (Estimator)</strong></p>
+                                            <ul>
+                                                <li>Answering client requests</li>
+                                                <li>Preparing I&D related estimates and contracts.</li>
+                                                <li>Scheduling and organizing production, including freight and logistics.</li>
+                                                <li>Coordinate project services.</li>                                                
+                                                <li>Organization and coordination of installation and dismantle (I&D) services, sometimes turnkey, for clients exhibiting locally.</li>
+                                                <li>Efficiently exchanging project information/requirements with clients, Skyline customer service, local Skyline service centers and internal services via e-mails, e-forms, telephone or in person.</li>
+
+                                            </ul>
+                                            <p><strong>Responsibilities for Cooridinator</strong></p>
+                                            <ul>
+                                                <li>Answering client requests.</li>                                                
+                                                <li>Maintain up-to-date knowledge of the products/services</li>
+                                                <li>Obtaining quotes from suppliers and preparing estimates based on CADs or Renders.</li>
+                                                <li>Submitting internal and external requisitions to obtain services and products.</li>
+                                                <li>Manage existing customer database to ensure all communications are logged and identified.</li>
+                                                <li>Attend and participate in sales meetings, trade shows, training programs and seminars when required.</li>
+                                            </ul>
+                                        </div>
+                                        <button id="close-cv-btn" class="close-cv-btn">&times;</button>
+                                        <button id="next-page-bk-btn" class="next-page-cv-btn">>></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -394,11 +560,11 @@
                 <button id="close-east-map" type="button" class="map-close-btn">&times;</button>
                 <!-- Lands -->
                 <!-- The Origin Grove -->
-                 <div class="land1East-map">
-                    <div class="territory-name el-name" aria-label="Enter The Origin Grove" role="button" tabindex="0" data-territory="land1East">
+                 <div class="el1-map">
+                    <div class="territory-name el-name" aria-label="Enter The Origin Grove" role="button" tabindex="0" data-territory="el1">
                         The Origin Grove
                     </div>
-                    <div id="land1East-modal" class="map-modal east-map-modal">
+                    <div id="el1-modal" class="map-modal east-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -409,15 +575,16 @@
                                 <div class="modal-inv-info" data-territory="el1"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Origin Grove" class="el1-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
                 <!-- The Learning Bridge -->
-                 <div class="land2East-map">
-                    <div class="territory-name el-name" aria-label="Enter The Learning Bridge" role="button" tabindex="0" data-territory="land2East">
+                 <div class="el2-map">
+                    <div class="territory-name el-name" aria-label="Enter The Learning Bridge" role="button" tabindex="0" data-territory="el2">
                         The Learning Bridge
                     </div>
-                    <div id="land2East-modal" class="map-modal east-map-modal">
+                    <div id="el2-modal" class="map-modal east-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -428,15 +595,16 @@
                                 <div class="modal-inv-info" data-territory="el2"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Learning Bridge" class="el2-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
                 <!-- The Reflection Tower -->
-                 <div class="land3East-map">
-                    <div class="territory-name el-name" aria-label="Enter The Reflection Tower" role="button" tabindex="0" data-territory="land3East">
+                 <div class="el3-map">
+                    <div class="territory-name el-name" aria-label="Enter The Reflection Tower" role="button" tabindex="0" data-territory="el3">
                         The Reflection Tower
                     </div>
-                    <div id="land3East-modal" class="map-modal east-map-modal">
+                    <div id="el3-modal" class="map-modal east-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -447,6 +615,7 @@
                                 <div class="modal-inv-info" data-territory="el3"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Reflection Tower" class="el3-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
@@ -462,7 +631,7 @@
                         <nav class="subsection-nav">
                             <span class="subsection-textbox south-subsection-textbox vt323-text"></span>
                             <div class="subsection-tabs">
-                                <button class="south-subsection-button south-button sl1-button-nav vt323-button" data-target="puzzle-workshop" id="sl1-button-nav">The Puzzle Workshop</button>
+                                <button class="south-subsection-button south-button sl1-button-nav vt323-button" data-target="puzzle-workshop" data-name="first-tab" id="sl1-button-nav">The Puzzle Workshop</button>
                                 <button class="south-subsection-button south-button sl2-button-nav vt323-button" data-target="expression-pavilion" id="sl2-button-nav">The Expression Pavilion</button>
                                 <button class="south-subsection-button south-button sl3-button-nav vt323-button" data-target="concept-forge" id="sl3-button-nav">The Concept Forge</button>
                                 <button class="back-button-nav vt323-button">⬅️</button>
@@ -529,9 +698,6 @@
                             </div>
                         </div>
                     </section>
-
-                        <!-- Return Button -->
-                        <button class="back-to-map">⬅️ Return to Map</button>
                 </section>
             </div>
             
@@ -540,11 +706,11 @@
                 <button id="close-south-map" type="button" class="map-close-btn">&times;</button>
                 <!-- Lands -->
                 <!-- The Puzzle Workshop -->
-                 <div class="land1South-map">
-                    <div class="territory-name sl-name" aria-label="Enter The Puzzle Workshop" role="button" tabindex="0" data-territory="land1South">
+                 <div class="sl1-map">
+                    <div class="territory-name sl-name" aria-label="Enter The Puzzle Workshop" role="button" tabindex="0" data-territory="sl1">
                         The Puzzle Workshop
                     </div>
-                    <div id="land1South-modal" class="map-modal south-map-modal">
+                    <div id="sl1-modal" class="map-modal south-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -555,15 +721,16 @@
                                 <div class="modal-inv-info" data-territory="sl1"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Puzzle Workshop" class="sl1-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
                 <!-- The Expression Pavilion -->
-                 <div class="land2South-map">
-                    <div class="territory-name sl-name" aria-label="Enter The Expression Pavilion" role="button" tabindex="0" data-territory="land2South">
+                 <div class="sl2-map">
+                    <div class="territory-name sl-name" aria-label="Enter The Expression Pavilion" role="button" tabindex="0" data-territory="sl2">
                         The Expression Pavilion
                     </div>
-                    <div id="land2South-modal" class="map-modal south-map-modal">
+                    <div id="sl2-modal" class="map-modal south-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -574,15 +741,16 @@
                                 <div class="modal-inv-info" data-territory="sl2"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Expression Pavilion" class="sl2-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
                 <!-- The Concept Forge -->
-                 <div class="land3South-map">
-                    <div class="territory-name sl-name" aria-label="Enter The Concept Forge" role="button" tabindex="0" data-territory="land3South">
+                 <div class="sl3-map">
+                    <div class="territory-name sl-name" aria-label="Enter The Concept Forge" role="button" tabindex="0" data-territory="sl3">
                         The Concept Forge
                     </div>
-                    <div id="land3South-modal" class="map-modal south-map-modal">
+                    <div id="sl3-modal" class="map-modal south-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -593,6 +761,7 @@
                                 <div class="modal-inv-info" data-territory="sl3"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Concept Forge" class="sl3-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
@@ -608,7 +777,7 @@
                         <nav class="subsection-nav">
                             <span class="subsection-textbox west-subsection-textbox vt323-text"></span>
                             <div class="subsection-tabs">
-                                <button class="west-subsection-button west-button wl1-button-nav vt323-button" data-target="forgotten-files" id="wl1-button-nav">The Forgotten Files</button>
+                                <button class="west-subsection-button west-button wl1-button-nav vt323-button" data-target="forgotten-files" data-name="first-tab" id="wl1-button-nav">The Forgotten Files</button>
                                 <button class="west-subsection-button west-button wl2-button-nav vt323-button" data-target="easter-egg-vault" id="wl2-button-nav">The Easter Egg Vault</button>
                                 <button class="west-subsection-button west-button wl3-button-nav vt323-button" data-target="unfinished-abyss" id="wl3-button-nav">The Unfinished Abyss</button>
                                 <button class="back-button-nav vt323-button">⬅️</button>
@@ -683,11 +852,11 @@
                 <button id="close-west-map" type="button" class="map-close-btn">&times;</button>
                 <!-- Lands -->
                 <!-- The Forgotten Files -->
-                 <div class="land1West-map">
-                    <div class="territory-name wl-name" aria-label="Enter The Forgotten Files" role="button" tabindex="0" data-territory="land1West">
+                 <div class="wl1-map">
+                    <div class="territory-name wl-name" aria-label="Enter The Forgotten Files" role="button" tabindex="0" data-territory="wl1">
                         The Forgotten Files
                     </div>
-                    <div id="land1West-modal" class="map-modal west-map-modal">
+                    <div id="wl1-modal" class="map-modal west-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -698,15 +867,16 @@
                                 <div class="modal-inv-info" data-territory="wl1"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="GEnter The Forgotten Files" class="wl1-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
                 <!-- The Easter Egg Vault -->
-                 <div class="land2West-map">
-                    <div class="territory-name wl-name" aria-label="Enter The Easter Egg Vault" role="button" tabindex="0" data-territory="land2West">
+                 <div class="wl2-map">
+                    <div class="territory-name wl-name" aria-label="Enter The Easter Egg Vault" role="button" tabindex="0" data-territory="wl2">
                         The Easter Egg Vault
                     </div>
-                    <div id="land2West-modal" class="map-modal west-map-modal">
+                    <div id="wl2-modal" class="map-modal west-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -717,15 +887,16 @@
                                 <div class="modal-inv-info" data-territory="wl2"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Easter Egg Vault" class="wl2-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>  
                  </div>
                 <!-- The Unfinished Abyss -->
-                 <div class="land3West-map">
-                    <div class="territory-name wl-name" aria-label="Enter The Unfinished Abyss" role="button" tabindex="0" data-territory="land3West">
+                 <div class="wl3-map">
+                    <div class="territory-name wl-name" aria-label="Enter The Unfinished Abyss" role="button" tabindex="0" data-territory="wl3">
                         The Unfinished Abyss
                     </div>
-                    <div id="land3West-modal" class="map-modal west-map-modal">
+                    <div id="wl3-modal" class="map-modal west-map-modal">
                         <div class="map-modal-content">
                             <aside class="modal-info">
                                 <span class="modal-close-btn" role="button" tabindex="0">&times;</span>
@@ -736,6 +907,7 @@
                                 <div class="modal-inv-info" data-territory="wl3"></div>
                             </aside>
                             <p class="modal-desc"></p>
+                            <button type="button" aria-label="Enter The Unfinished Abyss" class="wl3-ssmodal-button vt323-button">Explore</button>
                         </div>
                     </div>
                  </div>
@@ -775,10 +947,10 @@
                         <div class="text-nav-box">
                             <span class="text-nav vt323-text"></span>
                             <div class="choice-button" id="choice-button-row">
-                                <button type="button" aria-label="Skip" class="option-button vt323-button-secondary" id="skip-button">>></button>
+                                <button type="button" aria-label="Skip All" class="option-button vt323-button-secondary" id="skip-all-button">Skip All</button>
                                 <button type="button" aria-label="Open" class="option-button vt323-button-secondary" id="open-button">Open Map</button>
                                 <button type="button" aria-label="More" class="option-button vt323-button-secondary" id="more-button">Tell me more</button>
-                                <button type="button" aria-label="Skip All" class="option-button vt323-button-secondary" id="skip-all-button">>>></button>
+                                <button type="button" aria-label="Skip" class="option-button vt323-button-secondary" id="skip-button">>></button>
                             </div>
                         </div>
                     </div>
@@ -787,7 +959,7 @@
                             <button type="button" aria-label="Go North" class="north-button vt323-button" id="nl1-button">The Algorithmic Hills</button>
                             <button type="button" aria-label="Go South" class="north-button vt323-button" id="nl2-button">The Framework Forge</button>
                             <button type="button" aria-label="Go East" class="north-button vt323-button" id="nl3-button">The API Crossroads</button>
-                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="nl4-button">Go Back</button>
+                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="nl4-button">Main Map</button>
                         </div>
                     </div>
                     <div class="nav-buttons">
@@ -795,7 +967,7 @@
                             <button type="button" aria-label="Go North" class="east-button vt323-button" id="el1-button">The Origin Grove</button>
                             <button type="button" aria-label="Go South" class="east-button vt323-button" id="el2-button">The Learning Bridge</button>
                             <button type="button" aria-label="Go East" class="east-button vt323-button" id="el3-button">The Reflection Tower</button>
-                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="el4-button">Go Back</button>
+                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="el4-button">Main Map</button>
                         </div>
                     </div>
                     <div class="nav-buttons">
@@ -803,7 +975,7 @@
                             <button type="button" aria-label="Go North" class="south-button vt323-button" id="sl1-button">The Puzzle Workshop</button>
                             <button type="button" aria-label="Go South" class="south-button vt323-button" id="sl2-button">The Expression Pavilion</button>
                             <button type="button" aria-label="Go East" class="south-button vt323-button" id="sl3-button">The Concept Forge</button>
-                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="sl4-button">Go Back</button>
+                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="sl4-button">Main Map</button>
                         </div>
                     </div>
                     <div class="nav-buttons">
@@ -811,12 +983,20 @@
                             <button type="button" aria-label="Go North" class="west-button vt323-button" id="wl1-button">The Forgotten Files</button>
                             <button type="button" aria-label="Go South" class="west-button vt323-button" id="wl2-button">The Easter Egg Vault</button>
                             <button type="button" aria-label="Go East" class="west-button vt323-button" id="wl3-button">The Unfinished Abyss</button>
-                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="wl4-button">Go Back</button>
+                            <button type="button" aria-label="Go Back" class="north-button vt323-button back-btn" id="wl4-button">Main Map</button>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
+
+        <!-- Contact me Modal -->
+        <div id="contact-mdl" class="contact-modal hidden">
+            <button type="button" aria-label="Close Contact Form" class="close-contact-btn vt323-button" id="contact-close-btn">&times;</button>
+            <p class="phone"><a href="tel:514-839-5999" class="fa fa-phone"></a>(514)839-5999</p>
+            <p><a href="mailto:sert.taline@gmail.com" class="fa fa-envelope"></a>sert.taline@gmail.com</p>
+            <p><a href="#" class="fa fa-linkedin"></a>/in/taline-sert/</p>
+        </div>
 
         <!-- Inventory Modal -->
         <div id="inv-modal" class="inventory-modal">

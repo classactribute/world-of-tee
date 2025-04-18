@@ -51,6 +51,107 @@ p {
     text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
 }
 
+.contact-nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 3%;
+    left: 1%;
+
+    .benny-tee {
+        width: 175px;
+        height: auto;
+    }
+}
+
+.contact-nav.animate {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 19%;
+    left: 5%;
+
+    .benny-tee {
+        width: 175px;
+        height: auto;
+    }
+    animation: slideUp 1s ease-in-out;
+
+    .contact-btn {
+        display: none;
+    }
+}
+
+@keyframes slideUp {
+    0% {bottom: 3%; left: 1%;}
+    25% {bottom: 8%; left: 2%;}
+    50% {bottom: 12%; left: 3%;}
+    75% {bottom: 15%; left: 4%;}
+    100% {bottom: 19%; left: 5%;}
+}
+
+.contact-modal {
+    position: fixed;
+    width: 300px;
+    bottom: 3%;
+    left: 1%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: left;
+    background-color: var(--inv-modal-bg, $dark-blue);
+    border-style: solid;
+    border-color: var(--inv-modal-border-color, $lighter-pink);
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-radius: 5px;
+    box-shadow: var(--inv-modal-bs, 2px 2px 10px 1px $option-button-box-shadow);
+    animation: fadeIn 2s ease-in-out;
+
+    p {
+        margin: 10px;
+    }
+
+    .close-contact-btn {
+        position: absolute;
+        right: 1%;
+    }
+
+    .fa {
+        padding: 5px;
+        font-size: 20px;
+        width: 10%;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 5px;
+    }
+    
+    .fa-linkedin {
+        background-color: var(--inv-modal-border-color, $lighter-pink);
+        color: var(--inv-modal-bg, $dark-blue);
+    }
+    
+    .fa-envelope {
+        background-color: var(--inv-modal-border-color, $lighter-pink);
+        color: var(--inv-modal-bg, $dark-blue);
+    }
+    
+    .fa-phone {
+        background-color: var(--inv-modal-border-color, $lighter-pink);
+        color: var(--inv-modal-bg, $dark-blue);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .theme-north {
     --h1-color: #{$north-light-pink};
     --h3-color: #{$blue};
@@ -790,7 +891,7 @@ p {
 }
 
 // North Map Lands
-.land1North-map {
+.nl1-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -800,7 +901,7 @@ p {
     top: 40%;
 }
 
-.land2North-map {
+.nl2-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -810,7 +911,7 @@ p {
     right: 15%;
 }
 
-.land3North-map {
+.nl3-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -822,7 +923,7 @@ p {
 }
 
 // East Map Lands
-.land1East-map {
+.el1-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -833,7 +934,7 @@ p {
     right: 42%;
 }
 
-.land2East-map {
+.el2-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -844,7 +945,7 @@ p {
     bottom: 18%;
 }
 
-.land3East-map {
+.el3-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -856,7 +957,7 @@ p {
 }
 
 // South Map Lands
-.land1South-map {
+.sl1-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -867,7 +968,7 @@ p {
     left: 20%;
 }
 
-.land2South-map {
+.sl2-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -877,7 +978,7 @@ p {
     right: 32%;
 }
 
-.land3South-map {
+.sl3-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -889,7 +990,7 @@ p {
 }
 
 // West Map Lands
-.land1West-map {
+.wl1-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -899,7 +1000,7 @@ p {
     top: 30%;
 }
 
-.land2West-map {
+.wl2-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -910,7 +1011,7 @@ p {
     left: 0;
 }
 
-.land3West-map {
+.wl3-map {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -925,6 +1026,11 @@ p {
     position: absolute;
     top: 2%;
     right: 1%;
+}
+
+.modal-close-btn:hover {
+    cursor: pointer;
+    font-size: clamp(2rem, 2vw, 2rem);
 }
 
 .modal-info {
@@ -1030,6 +1136,8 @@ p {
 // }
 
 .origin-story-box {
+    position: relative;
+    justify-content: center;
     background: rgba(0, 0, 0, 0.6); // semi-transparent for depth
     border-left: 4px solid $east-pink; // soft green moss glow
     padding: 1.5rem;
@@ -1163,9 +1271,190 @@ p {
     margin: 0 auto 0.5rem;
 }
 
+.code-showcase {
+    position: relative;
+}
+
+.crt-img {
+    width: 100%;
+    height: auto;
+}
+
+.crt-content {
+    position: absolute;
+    top:22%;
+    left: 20%;
+    width: 60%;
+    height: 48%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    color: $north-bright-white-glow;
+}
+
+#recursive-tree {
+    position: absolute;
+    right: 30%;
+    width: 40%;
+    height: auto;
+    border: 3px solid #9455C4;
+    background-color: #322426;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 0 20px #FECBF1;
+  }
+
+.forge-section {
+    background: rgba(0, 0, 0, 0.6); // semi-transparent for depth
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 0 12px rgba(50, 255, 200, 0.1);
+  
+    position: relative;
+    overflow: hidden;
+  
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(50, 255, 200, 0.3);
+    }
+
+    h3 {
+        color: $east-pink;
+        font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+  
+    &::before {
+      content: "";
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #aefce0;
+      box-shadow: 0 0 10px #aefce0;
+      margin: 0 auto 1rem;
+    }
+}
+
+.framework-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    // gap: 10px;
+    // background-color: dodgerblue;
+    // padding: 10px;
+}
+
+.framework-list > div {
+    position: relative;
+    background: url('/assets/images/floppy.png');
+    // background-color: black;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color:#000;
+    // padding: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+.item-title {
+    position: relative;
+    margin: 55px;
+    margin-top: 40%;
+    // top: 18%;
+    // left: 30%;
+}
+
+.forge-section-title {
+    justify-self: center;
+}
+  
+
 // CV MODAL / SCROLL
 // Optional button style
+
+.story-book {
+    position: relative;
+
+    .book-bg {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 0 10px $east-light-green);
+        border-radius: 2rem;
+    }
+
+    h3 {
+        color: $east-pink;
+        font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+        font-size: 1.15rem;
+        // margin-bottom: 0.75rem;
+        justify-self: center;
+    }
+
+    h4 {
+        color: $east-pink;
+        font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+        font-size: 1rem;
+        justify-self: center;
+        // margin-bottom: 0.75rem;
+    }
+  
+    .left-page {
+        position: absolute;
+        // border: 1px solid $dark-pink;
+        // background-color: #000;
+        top: 16%;
+        left: 19%;
+        width: 200px;
+        height: 240px;
+        overflow-y: auto;
+        scrollbar-width: none;
+        color: $east-white-glow;
+        font-family: 'Courier New', monospace;
+        font-size: 1rem;
+        text-shadow: 0 0 5px $east-dark-green;
+    }
+
+    .right-page {
+        position: absolute;
+        // border: 1px solid $dark-pink;
+        // background-color: #000;
+        top: 16%;
+        right: 23%;
+        width: 200px;
+        height: 240px;
+        overflow-y: auto;
+        scrollbar-width: none;
+        color: $east-white-glow;
+        font-family: 'Courier New', monospace;
+        text-shadow: 0 0 5px $east-dark-green;
+        ul {
+            list-style-type: none;
+        }
+    }
+
+    .next-page-book-btn {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        background: transparent;
+        color: $east-pink;
+        font-size: 2rem;
+        border: none;
+        cursor: pointer;
+    }
+
+    .next-page-book-btn:hover {
+        color: $east-light-green;
+    }
+}
+
+//   Glowing CV Button
 .glow-btn {
+    margin: 25px;
     background-color: $east-pink;
     color: $east-white-glow;
     border: none;
@@ -1183,76 +1472,59 @@ p {
   
   // Modal backdrop
   .scroll-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 800px;
-    height: 100%;
-    background: url('/assets/images/scroll.png');
-    background-color: black;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+    position: relative;
+
+    h3 {
+        color: $east-pink;
+        font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+        font-size: 1.15rem;
+        // margin-bottom: 0.75rem;
+        justify-self: center;
+    }
+
+    h4 {
+        color: $east-pink;
+        font-family: 'Courier New', monospace; // optional retro-terminal typewriter vibe
+        font-size: 1rem;
+        justify-self: center;
+        // margin-bottom: 0.75rem;
+    }
+  
+    // Text on top of scroll
+    .scroll-content {
+        position: relative;
+    }
+    
+    // Close button
+    .close-cv-btn {
+        position: fixed;
+        top: 5px;
+        right: 5px;
+        background: transparent;
+        color: $east-pink;
+        font-size: 5rem;
+        border: none;
+        cursor: pointer;
+    }
+
+    .next-page-cv-btn {
+        position: fixed;
+        bottom: 30%;
+        right: 15%;
+        background: transparent;
+        color: $east-pink;
+        font-size: 2rem;
+        border: none;
+        cursor: pointer;
+    }
+
+    .next-page-cv-btn:hover {
+        color: $east-light-green;
+    }
   }
   
   // Hide by default
   .hidden {
     display: none;
-  }
-  
-  // Scroll content area
-  .scroll-content {
-    position: relative;
-    max-width: 800px;
-    width: 90%;
-    animation: fadeInScroll 0.6s ease-out;
-  }
-  
-  // Glowing scroll image
-  .scroll-bg {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 0 10px $east-light-green);
-    border-radius: 2rem;
-  }
-  
-  // Text on top of scroll
-  .cv-text {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    right: 10%;
-    bottom: 10%;
-    overflow-y: auto;
-    color: $east-white-glow;
-    font-family: 'Courier New', monospace;
-    text-shadow: 0 0 5px $east-dark-green;
-  }
-  
-  // Close button
-  .close-cv-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: transparent;
-    color: $east-pink;
-    font-size: 5rem;
-    border: none;
-    cursor: pointer;
-  }
-  
-  @keyframes fadeInScroll {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
   }
   

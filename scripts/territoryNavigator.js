@@ -1,6 +1,7 @@
 import { clearHUDThemes, updateHUDTheme } from './themeManager.js';
 import { storyTexts, titles } from './gameTexts.js';
-import { locations, modalContent } from './gameData.js';
+import { locations, modalContent, getTerritoryDirections } from './gameData.js';
+import { setScene, setupTabs, showSubsection } from './script.js';
 
 export const state = {
     currentLocation: "start"
@@ -35,10 +36,16 @@ export function navigateToTerritory(territory, isClosingMap = false) {
 
     if (isClosingMap) {
         console.log(state.currentLocation);
+        const subsectionNavBtns = document.querySelectorAll(`.${state.currentLocation}-subsection-button`);
         if (selectedTerritoryMap) selectedTerritoryMap.style.display = "none";
         if (selectedTerritoryBody) selectedTerritoryBody.style.display = "flex";
         minimap.style.display = "flex";
         textBox.style.display = "none";
+        subsectionNavBtns.forEach(subsectionNavBtn => {
+            if (subsectionNavBtn.dataset.name == 'first-tab') {
+                subsectionNavBtn.click();
+            }
+        });
         return;
     }
 
@@ -83,7 +90,7 @@ export function setupZoomMapListener() {
 // --- Territory Modals ---
 export function setupModalListeners() {
     document.addEventListener("click", (event) => {
-        console.log("event listener activated");
+        // console.log("event listener activated");
         const modal = event.target.closest(".map-modal");
         const openModal = document.querySelector(".map-modal[style*='display: flex']");
     
@@ -100,15 +107,35 @@ export function setupModalListeners() {
             event.stopPropagation();
             const territoryType = territory.getAttribute("data-territory");
             const targetModal = document.getElementById(`${territoryType}-modal`);
+
     
             if (targetModal) {
-                console.log("Trying to open:", territoryType);
+                // console.log("Trying to open:", territoryType);
                 console.log("Target modal:", targetModal);
+                console.log("territory type: ", territoryType);
                 const modalData = modalContent[territoryType];
                 targetModal.querySelector(".modal-desc").textContent = modalData.description;
                 targetModal.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.8)), url('${modalData.image}')`;
                 targetModal.style.backgroundRepeat = "no-repeat";
                 targetModal.style.backgroundSize = "100% 100%";
+
+                const selectedModalButton = targetModal.querySelector(`.${territoryType}-modal-button`);
+                const selectedSSModalButton = targetModal.querySelector(`.${territoryType}-ssmodal-button`);
+                
+                if (selectedModalButton) {
+                    selectedModalButton.addEventListener("click", () => {
+                        setScene(territoryType);
+                    });
+                }
+
+                if (selectedSSModalButton) {
+                    selectedSSModalButton.addEventListener("click", () => {
+                        console.log("this is being clicked");
+                        console.log("trying to put this territory type: ", territoryType);
+                        const ssBtn = document.querySelector(`.${territoryType}-button-nav`);
+                        ssBtn.click();
+                    });
+                }
         
                 if (!openModal || openModal !== targetModal) {
                     if (openModal) openModal.style.display = "none";
