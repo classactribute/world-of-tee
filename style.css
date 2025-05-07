@@ -140,11 +140,12 @@ p {
 }
 
 .contact-nav {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   bottom: 3%;
   left: 1%;
+  z-index: 20;
 }
 .contact-nav .benny-tee {
   width: 175px;
@@ -152,10 +153,10 @@ p {
 }
 
 .contact-nav.animate {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  bottom: 19%;
+  bottom: 20%;
   left: 5%;
   animation: slideUp 1s ease-in-out;
 }
@@ -181,11 +182,11 @@ p {
     left: 3%;
   }
   75% {
-    bottom: 15%;
+    bottom: 16%;
     left: 4%;
   }
   100% {
-    bottom: 19%;
+    bottom: 20%;
     left: 5%;
   }
 }
@@ -196,7 +197,7 @@ p {
   left: 1%;
   display: flex;
   flex-direction: column;
-  background-color: var(--inv-modal-bg, #13145F);
+  background-image: var(--contact-modal-bg, linear-gradient(to left, #FC30C5, #13145F));
   border-style: solid;
   border-color: var(--inv-modal-border-color, #FF9DEA);
   border-top-width: 1px;
@@ -206,7 +207,7 @@ p {
   animation: fadeIn 2s ease-in-out;
 }
 .contact-modal p {
-  margin: 10px;
+  margin: 5px;
 }
 .contact-modal .close-contact-btn {
   position: absolute;
@@ -219,18 +220,6 @@ p {
   text-align: center;
   text-decoration: none;
   margin-right: 5px;
-}
-.contact-modal .fa-linkedin {
-  background-color: var(--inv-modal-border-color, #FF9DEA);
-  color: var(--inv-modal-bg, #13145F);
-}
-.contact-modal .fa-envelope {
-  background-color: var(--inv-modal-border-color, #FF9DEA);
-  color: var(--inv-modal-bg, #13145F);
-}
-.contact-modal .fa-phone {
-  background-color: var(--inv-modal-border-color, #FF9DEA);
-  color: var(--inv-modal-bg, #13145F);
 }
 
 @keyframes fadeIn {
@@ -292,7 +281,7 @@ p {
   --inv-hover-bg: #FECBF1;
   --inv-hover-bs: 2px 2px 5px 1px #FECBF1;
   --inv-modal-text: #47244D;
-  --inv-modal-bg: #FA67D1;
+  --inv-modal-bg: linear-gradient(to right, #9455C4, #47244D);
   --inv-modal-border-color: 5px solid #47244D;
   --inv-modal-bs: 2px 2px 10px 1px #DAFFF4;
   --inv-modal-close-color: #47244D;
@@ -308,6 +297,8 @@ p {
   --text-nav-bg: #322426;
   --text-nav-border: 2px solid #FA67D1;
   --text-color: #F7F3B7;
+  --contact-modal-bg: linear-gradient(to left, #9455C4, #47244D);
+  --contact-logo-text: #F7F3B7;
 }
 
 .theme-east {
@@ -359,7 +350,7 @@ p {
   --inv-hover-bg: #FF59C6;
   --inv-hover-bs: 2px 2px 5px 1px #FAFCFB;
   --inv-modal-text: #490127;
-  --inv-modal-bg: #ADFF61;
+  --inv-modal-bg: linear-gradient(to right, #257D9E, #490127);
   --inv-modal-border-color: 5px solid #490127;
   --inv-modal-bs: 2px 2px 10px 1px #DAFFF4;
   --inv-modal-close-color: #490127;
@@ -375,6 +366,8 @@ p {
   --text-nav-bg: #322426;
   --text-nav-border: 2px solid #ADFF61;
   --text-color: #FAFCFB;
+  --contact-modal-bg: linear-gradient(to left, #257D9E, #490127);
+  --contact-logo-text: #ADFF61;
 }
 
 .theme-south {
@@ -426,7 +419,7 @@ p {
   --inv-hover-bg: #0A96B4;
   --inv-hover-bs: 2px 2px 5px 1px #F7FF9F;
   --inv-modal-text: #F7FF9F;
-  --inv-modal-bg: #D71F5D;
+  --inv-modal-bg: linear-gradient(to right, #D71F5D, #2C1E4E);
   --inv-modal-border-color: 5px solid #2C1E4E;
   --inv-modal-bs: 2px 2px 10px 1px #DAFFF4;
   --inv-modal-close-color: #F7FF9F;
@@ -442,6 +435,8 @@ p {
   --text-nav-bg: #322426;
   --text-nav-border: 2px solid #F7FF9F;
   --text-color: #F7FF9F;
+  --contact-modal-bg: linear-gradient(to left, #D71F5D, #2C1E4E);
+  --contact-logo-text: #F7FF9F;
 }
 
 .theme-west {
@@ -492,7 +487,7 @@ p {
   --inv-hover-bg: #13D4E4;
   --inv-hover-bs: 2px 2px 5px 1px #FBEF9F;
   --inv-modal-text: #FC9999;
-  --inv-modal-bg: #D21088;
+  --inv-modal-bg: linear-gradient(to right, #24D0E5, #9049DD);
   --inv-modal-border-color: 5px solid #9049DD;
   --inv-modal-bs: 2px 2px 10px 1px #DAFFF4;
   --inv-modal-close-color: #FC9999;
@@ -508,6 +503,8 @@ p {
   --text-nav-bg: #322426;
   --text-nav-border: 2px solid #D21088;
   --text-color: #E5FFEE;
+  --contact-modal-bg: linear-gradient(to left, #24D0E5, #9049DD);
+  --contact-logo-text: #D21088;
 }
 
 .site-name {
@@ -727,7 +724,7 @@ p {
   display: block;
   justify-content: center;
   align-items: center;
-  background-color: var(--inv-modal-bg, #13145F);
+  background-image: var(--inv-modal-bg, linear-gradient(to right, #FC30C5, #13145F));
   border-style: solid;
   border-color: var(--inv-modal-border-color, #FF9DEA);
   border-top-width: 1px;

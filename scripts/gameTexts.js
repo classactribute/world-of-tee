@@ -1,8 +1,8 @@
 // --- TEXT CONTENT ---
 export const storyTexts = {
     // Intro and navigation
-    start: "Hello, welcome to my digital world. I'd love for you to stay a little while and explore. Think of this box as your navigation through your journey. Let's get started. Go ahead and open the map.",
-    world1: "This is the main map. It's separated into 4 territories. Give each one a click for a brief description of what the destination has in store for you.",
+    start: "Welcome, traveler. This is my interactive portfolio — a world I’ve been building to share who I am as a developer, creator, and human. You’re welcome to explore what’s here and even revisit later — I’ll be continuing to grow and expand this world. And if you ever feel lost, this little text box will help guide your way. Let's get started. Go ahead and open the map.",
+    world1: "This is the main map. It's separated into 4 territories. Each territory reveals a piece of my story. Some parts are polished. Others are still unfolding. Give each one a click for a brief description of what the destination has in store for you.",
     world2: "Each territory has hidden coins for you to collect, and items will be added to your inventory as you explore it, and the lands within it. Go ahead, you can pick your first destination now. Enjoy your travels. And if you manage to collect enough coins and all the items, come back to the start for a treat!",
     // Territories
     north: "You venture north, where the air grows crisp and the mountains loom.",
