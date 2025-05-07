@@ -52,11 +52,12 @@ p {
 }
 
 .contact-nav {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     bottom: 3%;
     left: 1%;
+    z-index: 20;
 
     .benny-tee {
         width: 175px;
@@ -65,10 +66,10 @@ p {
 }
 
 .contact-nav.animate {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
-    bottom: 19%;
+    bottom: 20%;
     left: 5%;
 
     .benny-tee {
@@ -86,8 +87,8 @@ p {
     0% {bottom: 3%; left: 1%;}
     25% {bottom: 8%; left: 2%;}
     50% {bottom: 12%; left: 3%;}
-    75% {bottom: 15%; left: 4%;}
-    100% {bottom: 19%; left: 5%;}
+    75% {bottom: 16%; left: 4%;}
+    100% {bottom: 20%; left: 5%;}
 }
 
 .contact-modal {
@@ -98,7 +99,7 @@ p {
     display: flex;
     flex-direction: column;
     // justify-content: left;
-    background-color: var(--inv-modal-bg, $dark-blue);
+    background-image: var(--contact-modal-bg, linear-gradient(to left, $neon-pink, $dark-blue));
     border-style: solid;
     border-color: var(--inv-modal-border-color, $lighter-pink);
     border-top-width: 1px;
@@ -108,7 +109,7 @@ p {
     animation: fadeIn 2s ease-in-out;
 
     p {
-        margin: 10px;
+        margin: 5px;
     }
 
     .close-contact-btn {
@@ -123,21 +124,6 @@ p {
         text-align: center;
         text-decoration: none;
         margin-right: 5px;
-    }
-    
-    .fa-linkedin {
-        background-color: var(--inv-modal-border-color, $lighter-pink);
-        color: var(--inv-modal-bg, $dark-blue);
-    }
-    
-    .fa-envelope {
-        background-color: var(--inv-modal-border-color, $lighter-pink);
-        color: var(--inv-modal-bg, $dark-blue);
-    }
-    
-    .fa-phone {
-        background-color: var(--inv-modal-border-color, $lighter-pink);
-        color: var(--inv-modal-bg, $dark-blue);
     }
 }
 
@@ -210,7 +196,7 @@ p {
     --inv-hover-bs: 2px 2px 5px 1px #{$north-light-pink};
 
     --inv-modal-text: #{$north-dark-blue-purple};
-    --inv-modal-bg: #{$north-pink};
+    --inv-modal-bg: linear-gradient(to right, #{$north-purple}, #{$north-dark-blue-purple});
     --inv-modal-border-color: 5px solid #{$north-dark-blue-purple};
     --inv-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --inv-modal-close-color: #{$north-dark-blue-purple};
@@ -227,6 +213,9 @@ p {
     --text-nav-bg: #{$charcoal-dark};
     --text-nav-border: 2px solid #{$north-pink};
     --text-color: #{$north-light-yellow};
+
+    --contact-modal-bg: linear-gradient(to left, #{$north-purple}, #{$north-dark-blue-purple});
+    --contact-logo-text: #{$north-light-yellow};
 }
       
 .theme-east {
@@ -287,7 +276,7 @@ p {
     --inv-hover-bs: 2px 2px 5px 1px #{$east-white-glow};
 
     --inv-modal-text: #{$east-dark-purple};
-    --inv-modal-bg: #{$east-light-green};
+    --inv-modal-bg: linear-gradient(to right, #{$east-dark-green}, #{$east-dark-purple});
     --inv-modal-border-color: 5px solid #{$east-dark-purple};
     --inv-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --inv-modal-close-color: #{$east-dark-purple};
@@ -304,6 +293,9 @@ p {
     --text-nav-bg: #{$charcoal-dark};
     --text-nav-border: 2px solid #{$east-light-green};
     --text-color: #{$east-white-glow};
+
+    --contact-modal-bg: linear-gradient(to left, #{$east-dark-green}, #{$east-dark-purple});
+    --contact-logo-text: #{$east-light-green};
 }
     
 .theme-south {
@@ -364,7 +356,7 @@ p {
     --inv-hover-bs: 2px 2px 5px 1px #{$south-bright-yellow-glow};
 
     --inv-modal-text: #{$south-bright-yellow-glow};
-    --inv-modal-bg: #{$south-pink-orange};
+    --inv-modal-bg: linear-gradient(to right, #{$south-pink-orange}, #{$south-dark-purple});
     --inv-modal-border-color: 5px solid #{$south-dark-purple};
     --inv-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --inv-modal-close-color: #{$south-bright-yellow-glow};
@@ -381,6 +373,9 @@ p {
     --text-nav-bg: #{$charcoal-dark};
     --text-nav-border: 2px solid #{$south-bright-yellow-glow};
     --text-color: #{$south-bright-yellow-glow};
+
+    --contact-modal-bg: linear-gradient(to left, #{$south-pink-orange}, #{$south-dark-purple});
+    --contact-logo-text: #{$south-bright-yellow-glow};
 }
     
 .theme-west {
@@ -440,7 +435,7 @@ p {
     --inv-hover-bs: 2px 2px 5px 1px #{$bright-yellow-glow};
 
     --inv-modal-text: #{$west-orange};
-    --inv-modal-bg: #{$west-dark-pink};
+    --inv-modal-bg: linear-gradient(to right, #{$west-light-blue}, #{$west-dark-purple});
     --inv-modal-border-color: 5px solid #{$west-dark-purple};
     --inv-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --inv-modal-close-color: #{$west-orange};
@@ -457,6 +452,9 @@ p {
     --text-nav-bg: #{$charcoal-dark};
     --text-nav-border: 2px solid #{$west-dark-pink};
     --text-color: #{$west-bright-blue-glow};
+
+    --contact-modal-bg: linear-gradient(to left, #{$west-light-blue}, #{$west-dark-purple});
+    --contact-logo-text: #{$west-dark-pink};
 }
 
 .site-name {
@@ -681,7 +679,7 @@ p {
     display: block;
     justify-content: center;
     align-items: center;
-    background-color: var(--inv-modal-bg, $dark-blue);
+    background-image: var(--inv-modal-bg, linear-gradient(to right, $neon-pink, $dark-blue));
     border-style: solid;
     border-color: var(--inv-modal-border-color, $lighter-pink);
     border-top-width: 1px;

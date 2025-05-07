@@ -3,7 +3,11 @@ import { storyTexts, titles  } from './gameTexts.js';
 import { getTerritoryDirections, getDirection, locations, modalContent } from './gameData.js';
 import { addInventoryItem, setupInitialInventory } from './inventory.js';
 import { playerInventory, modalInventories } from './inventoryData.js';
-import { navigateToTerritory, setupCloseMapListeners, setupZoomMapListener, setupModalListeners, state } from './territoryNavigator.js';
+import { navigateToTerritory, setupCloseMapListeners, setupZoomMapListener, setupModalListeners, goBack, skipAnimation, setScene, state } from './territoryNavigator.js';
+import { setupBackButtons, setupNavBackButtons } from './uiBindings.js';
+import { setupSkipButtons } from './animationControls.js';
+import { getSceneContext } from './sceneUtils.js';
+import { animateText } from './animations.js';
 
 // --- DOM ELEMENTS ---
 const mapContainer = document.querySelector(".map-container");
@@ -13,10 +17,10 @@ const skipButton = document.getElementById("skip-button");
 const moreButton = document.getElementById("more-button");
 const openMapButton = document.getElementById("open-button");
 const skipAllBtn = document.getElementById("skip-all-button");
-const backButtons = document.querySelectorAll(".back-btn");
-const backButtonsNav = document.querySelectorAll(".back-button-nav");
+
+
 const navText = document.querySelector(".text-nav");
-const allSubNavs = document.querySelectorAll(`.subsection-textbox`);
+
 const textBox = document.querySelector(".text-box");
 const minimap = document.querySelector(".minimap-box");
 const northButtons = document.querySelector(".north-buttons");
@@ -33,17 +37,27 @@ const inventoryContainer = document.querySelector(".inv-modal-box-container");
 const inventoryContainerModals = document.querySelectorAll(".modal-inv-info");
 
 console.log("current location: ", state.currentLocation);
+let intervalId = null;
+const intervalIdRef = {current: null};
 
-// --- Back Button Handler ---
-backButtons.forEach(btn => {
-    btn.addEventListener("click", goBack);
-});
+// --- Back Buttons ---
+setupBackButtons(goBack);
+setupNavBackButtons(goBack);
 
-backButtonsNav.forEach(btn => {
-    btn.addEventListener("click", () => {
-        goBack();
-        textBox.style.display = "flex";
-    });
+// --- Set Scene ---
+export function sceneSetter(location) {
+    setScene(location, getSceneContext(intervalIdRef));
+}
+
+  // --- Skip Animation ---
+setupSkipButtons({
+    state,
+    intervalIdRef,
+    navText,
+    skipButton,
+    skipAllBtn,
+    onTypingComplete,
+    setScene: sceneSetter
 });
 
 // --- INITIAL UI STATE ---
@@ -56,12 +70,10 @@ eastButtons.style.display = "none";
 southButtons.style.display = "none";
 westButtons.style.display = "none";
 
-// state.currentLocation = location;
-let intervalId;
+
 
 // --- STARTUP TEXT ANIMATION ---
-animateText(storyTexts[state.currentLocation]);
-// animateSectionText(storyTexts[state.currentLocation], location);
+animateText(storyTexts[state.currentLocation], getSceneContext(intervalIdRef));
 getTerritoryDirections.forEach(setupTerritoryListeners);
 getTerritoryDirections.forEach(setupTabs);
 
@@ -70,36 +82,8 @@ setupZoomMapListener();
 setupInitialInventory(inventoryContainer, inventoryContainerModals);
 setupModalListeners();
 
-// Typewriter effect for navText
-export function animateText(text) {
-    const direction = getDirection[state.currentLocation];
-    const currentSubNav = document.querySelector(`.${direction}-subsection-textbox`);
-    const textLength = text.length;
-    skipButton.style.visibility = "visible";
-    skipAllBtn.style.visibility = "visible";
-
-    allSubNavs.forEach(el => el.textContent = "");
-    navText.textContent = "";
-
-    let i = 0;
-    clearInterval(intervalId);
-
-    if (!intervalId) {
-        intervalId = setInterval(() => {
-            if ( i === textLength ) {
-              clearInterval(intervalId);
-              onTypingComplete();
-            } else {
-              navText.textContent += text[i];
-              if (currentSubNav) currentSubNav.textContent += text[i];
-              i++;
-            }  
-        }, 20)
-    }
-}
-
 // --- HANDLE POST-TYPING UI STATE ---
-function onTypingComplete() {
+export function onTypingComplete() {
     if (state.currentLocation === "start") {
         openMapButton.style.visibility = "visible";
     } else if (state.currentLocation === "world1") {
@@ -109,46 +93,6 @@ function onTypingComplete() {
         skipAllBtn.style.visibility = "hidden";
     }
     skipButton.style.visibility = "hidden";
-}
-
-// --- SKIP ANIMATION BUTTONS ---
-function skipAnimation() {
-    console.log("skip animation: ", state.currentLocation);
-    clearInterval(intervalId);
-    intervalId = null;
-    navText.textContent = storyTexts[state.currentLocation];
-    skipButton.style.visibility = 'hidden';
-    onTypingComplete();
-}
-
-skipButton.addEventListener("click", skipAnimation);
-skipAllBtn.addEventListener("click", () => {
-    console.log("skip all animation: ", state.currentLocation);
-    clearInterval(intervalId);
-    intervalId = null;
-    setScene("world1");
-    setScene("world2");
-    skipAnimation();
-    skipAllBtn.style.display = "none";
-});
-
-// --- SCENE MANAGER ---
-// Updates text, UI visibility, and HUD logic based on location
-export function setScene(location) {
-    skipAnimation();
-    state.currentLocation = location;
-    navText.textContent = "";
-
-    if (state.currentLocation === "world1") {
-        openMapButton.style.visibility = "hidden";
-        mapContainer.style.visibility = "visible";
-    } else if (state.currentLocation === "world2") {
-        moreButton.style.visibility = "hidden";
-        onTypingComplete();
-    }  else if (["north", "east", "south", "west"].includes(state.currentLocation)) {
-        navigateToTerritory(state.currentLocation);
-    }
-    animateText(storyTexts[state.currentLocation]);
 }
 
 // --- SUBSECTION DISPLAY HANDLER ---
@@ -164,15 +108,19 @@ export function showSubsection(location) {
 }
 
 // --- MAP ENTRY ---
-openMapButton.addEventListener("click", () => setScene("world1"));
-moreButton.addEventListener("click", () => setScene("world2"));
+openMapButton.addEventListener("click", () => {
+    sceneSetter("world1");
+});
+moreButton.addEventListener("click", () => {
+    sceneSetter("world2");
+});
 
 // --- MAP NAVIGATION BUTTONS (territory selection) ---
 optionButtons.forEach(optionButton => {
     optionButton.addEventListener("click", (e)=> {
         const location = locations[e.target.id];
         if (location) {
-            setScene(location);
+            sceneSetter(location);
         }
     });
 });
@@ -187,7 +135,7 @@ function setupTerritoryListeners(direction) {
         territoryBtn.addEventListener("click", (e)=> {
             const location = locations[e.target.id];
             if (location) {
-                setScene(location);
+                sceneSetter(location);
                 showSubsection(location);
                 mapCont.style.display = "none";
                 minimap.style.display = "flex";
@@ -210,7 +158,7 @@ export function setupTabs(direction) {
             const location = locations[e.target.id];
             const otherBtns = document.querySelectorAll(`.${direction}-subsection-button.active`);
             if (location) {
-                setScene(location);
+                sceneSetter(location);
                 showSubsection(location);
                 mapCont.style.display = "none";
                 minimap.style.display = "flex";
@@ -222,32 +170,6 @@ export function setupTabs(direction) {
             }
         });
     });
-}
-
-// --- GO BACK TO MAIN MAP VIEW ---
-function goBack() {
-    clearHUDThemes();
-    state.currentLocation = "world2";
-    minimap.style.display = "none";
-    mainButtons.style.display = "flex";
-    northButtons.style.display = "none";
-    eastButtons.style.display = "none";
-    southButtons.style.display = "none";
-    westButtons.style.display = "none";
-    document.getElementById("main-map-container").style.display = "flex";
-    document.getElementById("north-section").classList.add("hidden");
-    document.getElementById("east-section").classList.add("hidden");
-    document.getElementById("south-section").classList.add("hidden");
-    document.getElementById("west-section").classList.add("hidden");
-
-    const body = document.getElementsByTagName('body')[0];
-    body.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('assets/${state.currentLocation}-background.webp')`;
-    body.style.backgroundRepeat = "no-repeat";
-    body.style.backgroundAttachment = "fixed";
-    body.style.backgroundSize = "100% 100%";
-
-    document.getElementById("section-name").innerHTML = titles[state.currentLocation];
-    setScene("world2");
 }
 
 // --- Contact Me Modal ---

@@ -1,7 +1,9 @@
 import { clearHUDThemes, updateHUDTheme } from './themeManager.js';
 import { storyTexts, titles } from './gameTexts.js';
 import { locations, modalContent, getTerritoryDirections } from './gameData.js';
-import { setScene, setupTabs, showSubsection } from './script.js';
+import { sceneSetter } from './script.js';
+import { animateText } from './animations.js';
+import { getSceneContext } from './sceneUtils.js';
 
 export const state = {
     currentLocation: "start"
@@ -124,7 +126,7 @@ export function setupModalListeners() {
                 
                 if (selectedModalButton) {
                     selectedModalButton.addEventListener("click", () => {
-                        setScene(territoryType);
+                        sceneSetter(territoryType);
                     });
                 }
 
@@ -151,4 +153,84 @@ export function setupModalListeners() {
             openModal.style.display = "none";
         }
     });
+}
+
+// --- GO BACK TO MAIN MAP VIEW ---
+export function goBack() {
+    clearHUDThemes();
+    const minimap = document.querySelector(".minimap-box");
+    const mainButtons = document.querySelector(".main-buttons");
+    const northButtons = document.querySelector(".north-buttons");
+    const eastButtons = document.querySelector(".east-buttons");
+    const southButtons = document.querySelector(".south-buttons");
+    const westButtons = document.querySelector(".west-buttons");
+
+    state.currentLocation = "world2";
+    minimap.style.display = "none";
+    mainButtons.style.display = "flex";
+    northButtons.style.display = "none";
+    eastButtons.style.display = "none";
+    southButtons.style.display = "none";
+    westButtons.style.display = "none";
+    document.getElementById("main-map-container").style.display = "flex";
+    document.getElementById("north-section").classList.add("hidden");
+    document.getElementById("east-section").classList.add("hidden");
+    document.getElementById("south-section").classList.add("hidden");
+    document.getElementById("west-section").classList.add("hidden");
+
+    const body = document.getElementsByTagName('body')[0];
+    body.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('assets/${state.currentLocation}-background.webp')`;
+    body.style.backgroundRepeat = "no-repeat";
+    body.style.backgroundAttachment = "fixed";
+    body.style.backgroundSize = "100% 100%";
+
+    document.getElementById("section-name").innerHTML = titles[state.currentLocation];
+    sceneSetter("world2");
+}
+
+export function skipAnimation({ state, intervalIdRef, navText, skipButton, onTypingComplete }) {
+    console.log("skip animation: ", state.currentLocation);
+    clearInterval(intervalIdRef.current);
+    intervalIdRef.current = null;
+    navText.textContent = storyTexts[state.currentLocation];
+    skipButton.style.visibility = 'hidden';
+    onTypingComplete();
+}
+
+// --- SCENE MANAGER ---
+// Updates text, UI visibility, and HUD logic based on location
+export function setScene(location, context) {
+    const {
+        state,
+        intervalIdRef,
+        navText,
+        openMapButton,
+        mapContainer,
+        moreButton,
+        skipButton,
+        onTypingComplete,
+        animateText
+    } = context;
+
+    skipAnimation({
+        state,
+        intervalIdRef,
+        navText,
+        skipButton,
+        onTypingComplete
+      });
+
+    state.currentLocation = location;
+    navText.textContent = "";
+
+    if (state.currentLocation === "world1") {
+        openMapButton.style.visibility = "hidden";
+        mapContainer.style.visibility = "visible";
+    } else if (state.currentLocation === "world2") {
+        moreButton.style.visibility = "hidden";
+        onTypingComplete();
+    }  else if (["north", "east", "south", "west"].includes(state.currentLocation)) {
+        navigateToTerritory(state.currentLocation);
+    }
+    animateText(storyTexts[state.currentLocation], getSceneContext(intervalIdRef));
 }
