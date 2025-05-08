@@ -1409,7 +1409,7 @@ p {
 }
 .story-book .left-page {
   position: absolute;
-  top: 16%;
+  top: 27%;
   left: 19%;
   width: 200px;
   height: 240px;
@@ -1417,12 +1417,12 @@ p {
   scrollbar-width: none;
   color: #FAFCFB;
   font-family: "Courier New", monospace;
-  font-size: 1rem;
+  font-size: 12px;
   text-shadow: 0 0 5px #257D9E;
 }
 .story-book .right-page {
   position: absolute;
-  top: 16%;
+  top: 27%;
   right: 23%;
   width: 200px;
   height: 240px;
@@ -1430,6 +1430,7 @@ p {
   scrollbar-width: none;
   color: #FAFCFB;
   font-family: "Courier New", monospace;
+  font-size: 12px;
   text-shadow: 0 0 5px #257D9E;
 }
 .story-book .right-page ul {
@@ -1446,6 +1447,19 @@ p {
   cursor: pointer;
 }
 .story-book .next-page-book-btn:hover {
+  color: #ADFF61;
+}
+.story-book .back-page-book-btn {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  background: transparent;
+  color: #FF59C6;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+.story-book .back-page-book-btn:hover {
   color: #ADFF61;
 }
 
