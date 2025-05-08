@@ -4,6 +4,7 @@ import { locations, modalContent, getTerritoryDirections } from './gameData.js';
 import { sceneSetter } from './script.js';
 import { animateText } from './animations.js';
 import { getSceneContext } from './sceneUtils.js';
+import { toggleTextBox } from './uiBindings.js';
 
 export const state = {
     currentLocation: "start"
@@ -12,7 +13,8 @@ export const state = {
 export function navigateToTerritory(territory, isClosingMap = false) {
     state.currentLocation = territory;
     const textBox = document.querySelector(".text-box");
-    textBox.style.display = "flex";
+    toggleTextBox(true);
+    // textBox.classList.remove('hide');
 
     const selectedTerritory = document.getElementById(`${territory}-section`);
     const selectedTerritoryButtons = document.querySelector(`.${territory}-buttons`);
@@ -20,7 +22,7 @@ export function navigateToTerritory(territory, isClosingMap = false) {
     const selectedTerritoryBody = document.querySelector(`.${territory}-body`);
 
     const body = document.getElementsByTagName('body')[0];
-    body.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('assets/${territory}-background.webp')`;
+    body.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('assets/backgrounds/${territory}-background.webp')`;
     body.style.backgroundRepeat = "no-repeat";
     body.style.backgroundAttachment = "fixed";
     body.style.backgroundSize = "100% 100%";
@@ -42,7 +44,8 @@ export function navigateToTerritory(territory, isClosingMap = false) {
         if (selectedTerritoryMap) selectedTerritoryMap.style.display = "none";
         if (selectedTerritoryBody) selectedTerritoryBody.style.display = "flex";
         minimap.style.display = "flex";
-        textBox.style.display = "none";
+        toggleTextBox(false);
+        // textBox.classList.add('hide');
         subsectionNavBtns.forEach(subsectionNavBtn => {
             if (subsectionNavBtn.dataset.name == 'first-tab') {
                 subsectionNavBtn.click();
@@ -52,7 +55,7 @@ export function navigateToTerritory(territory, isClosingMap = false) {
     }
 
     minimap.style.display = "none";
-    document.getElementById("minimap-img-id").src = `assets/${territory}-mini.png`;
+    document.getElementById("minimap-img-id").src = `assets/minimaps/${territory}-mini.png`;
 
     mainMap.style.display = "none";
     territoryMaps.forEach(map => map.style.display = "none");
@@ -179,7 +182,7 @@ export function goBack() {
     document.getElementById("west-section").classList.add("hidden");
 
     const body = document.getElementsByTagName('body')[0];
-    body.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('assets/${state.currentLocation}-background.webp')`;
+    body.style.background = `linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), url('assets/backgrounds/${state.currentLocation}-background.webp')`;
     body.style.backgroundRepeat = "no-repeat";
     body.style.backgroundAttachment = "fixed";
     body.style.backgroundSize = "100% 100%";

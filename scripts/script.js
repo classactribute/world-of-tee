@@ -4,7 +4,7 @@ import { getTerritoryDirections, getDirection, locations, modalContent } from '.
 import { addInventoryItem, setupInitialInventory } from './inventory.js';
 import { playerInventory, modalInventories } from './inventoryData.js';
 import { navigateToTerritory, setupCloseMapListeners, setupZoomMapListener, setupModalListeners, goBack, skipAnimation, setScene, state } from './territoryNavigator.js';
-import { setupBackButtons, setupNavBackButtons } from './uiBindings.js';
+import { setupBackButtons, setupNavBackButtons, toggleTextBox } from './uiBindings.js';
 import { setupSkipButtons } from './animationControls.js';
 import { getSceneContext } from './sceneUtils.js';
 import { animateText } from './animations.js';
@@ -104,7 +104,8 @@ export function showSubsection(location) {
         allSubsections[i].classList.add("hidden");
     }
     subsection.classList.remove("hidden");
-    textBox.style.display = "none";
+    toggleTextBox(false);
+    // textBox.classList.add('hide');
 }
 
 // --- MAP ENTRY ---
