@@ -1,10 +1,10 @@
 import { clearHUDThemes, updateHUDTheme } from './themeManager.js';
-import { storyTexts, titles } from './gameTexts.js';
+import { storyTexts, titles, bookPages } from './gameTexts.js';
 import { locations, modalContent, getTerritoryDirections } from './gameData.js';
 import { sceneSetter } from './script.js';
 import { animateText } from './animations.js';
 import { getSceneContext } from './sceneUtils.js';
-import { toggleTextBox } from './uiBindings.js';
+import { toggleTextBox, updateBookPages } from './uiBindings.js';
 
 export const state = {
     currentLocation: "start"
@@ -39,13 +39,12 @@ export function navigateToTerritory(territory, isClosingMap = false) {
     const mainButtons = document.querySelector(".main-buttons");
 
     if (isClosingMap) {
-        console.log(state.currentLocation);
+        console.log("this state current location is: ", state.currentLocation);
         const subsectionNavBtns = document.querySelectorAll(`.${state.currentLocation}-subsection-button`);
         if (selectedTerritoryMap) selectedTerritoryMap.style.display = "none";
         if (selectedTerritoryBody) selectedTerritoryBody.style.display = "flex";
         minimap.style.display = "flex";
         toggleTextBox(false);
-        // textBox.classList.add('hide');
         subsectionNavBtns.forEach(subsectionNavBtn => {
             if (subsectionNavBtn.dataset.name == 'first-tab') {
                 subsectionNavBtn.click();
@@ -234,6 +233,8 @@ export function setScene(location, context) {
         onTypingComplete();
     }  else if (["north", "east", "south", "west"].includes(state.currentLocation)) {
         navigateToTerritory(state.currentLocation);
+    } else if (state.currentLocation === "el1") {
+        updateBookPages();
     }
     animateText(storyTexts[state.currentLocation], getSceneContext(intervalIdRef));
 }
