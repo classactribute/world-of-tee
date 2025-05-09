@@ -232,7 +232,7 @@ button.wip {
   width: 175px;
   height: auto;
   bottom: 19%;
-  left: 4%;
+  left: 5%;
   animation: slideUp 1s ease-in-out;
 }
 .contact-nav.animate .contact-btn {
@@ -258,7 +258,7 @@ button.wip {
   }
   100% {
     bottom: 19%;
-    left: 4%;
+    left: 5%;
   }
 }
 .contact-modal {
