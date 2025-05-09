@@ -54,112 +54,112 @@ export const getDirection = {
 export const modalContent = {
     north: {
         title: "Realm of Code",
-        description: "Where logic and creativity merge. Explore my coding projects, frameworks, and problem-solving skills.",
+        description: "Where logic and creativity merge — climb the Algorithmic Hills, forge tools in glowing workshops, and navigate the crossroads of real-world data.",
         image: "assets/minimaps/north-mini.png",
         // buttonText: "Enter Realm",
         // link: "/realm-of-code.html"
     },
     east: {
         title: "The Storyteller's Path",
-        description: "A journey through my experiences, reflections, and lessons learned as a developer.",
+        description: "Trace the roots of my developer journey — from life before code, to growth through challenge, to deep personal insight.",
         image: "assets/minimaps/east-mini.png",
         // buttonText: "Enter Path",
         // link: "/storytellers-path.html"
     },
     south: {
         title: "The Creative Frontier",
-        description: "Where imagination meets innovation. Explore creative experiments and projects.",
+        description: "Where imagination meets innovation — explore playful code, personal expression, and visual storytelling through development.",
         image: "assets/minimaps/south-mini.png",
         // buttonText: "Enter Frontier",
         // link: "/creative-frontier.html"
     },
     west: {
         title: "The Hidden Archives",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Past lives of code — a city of flickering terminals, old experiments, and abandoned dreams worth remembering.",
         image: "assets/minimaps/west-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     nl1: {
         title: "The Algorithm Hills",
-        description: "A retro sanctuary of logic and patterns.",
+        description: "A retro sanctuary where logic flows like rivers and patterns bloom in neon — the foundation of how I think in code.",
         image: "assets/minimaps/north-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     nl2: {
         title: "The Framework Forge",
-        description: "Discover the frameworks and tech stacks I've worked with.",
+        description: "Stacks, libraries, and tools I’ve worked with — shaped by practice, refined by real-world projects.",
         image: "assets/minimaps/north-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     nl3: {
         title: "The API Crossroads",
-        description: "Exploring projects that integrate APIs to fetch and manipulate data.",
+        description: "Projects where my code connects to the wider web — fetching, transforming, and integrating real-time data.",
         image: "assets/minimaps/north-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     el1: {
         title: "The Origin Grove",
-        description: "Where seeds of curiosity took root and a new path began.",
+        description: "Where seeds of curiosity took root — the unexpected beginning of a whole new path.",
         image: "assets/minimaps/east-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     el2: {
         title: "The Learning Bridge",
-        description: "Crossing from confusion to clarity, one small \"aha\" at a time.",
+        description: "Crossing from confusion to clarity — the mindset shifts, tools, and patterns that helped me grow.",
         image: "assets/minimaps/east-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     el3: {
         title: "The Reflection Tower",
-        description: "From burnout to diagnosis, this is where I reflect on what it means to build a career as a late-diagnosed neurodivergent woman in tech — and how I’m learning to shape a space that fits me.",
+        description: "A high lookout over my inner landscape as a neurodivergent woman building her place in tech.",
         image: "assets/minimaps/east-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     sl1: {
         title: "The Puzzle Workshop",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "A hands-on lab of code experiments — logic challenges, technical puzzles, and creative debugging moments.",
         image: "assets/minimaps/south-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     sl2: {
         title: "The Expression Pavilion",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Interface design, animation, pixel art, and emotion-driven visuals — this is where I let the frontend speak.",
         image: "assets/minimaps/south-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     sl3: {
         title: "The Concept Forge",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Notes, sketches, half-formed ideas and future builds — a working forge of creativity in progress.",
         image: "assets/minimaps/south-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     wl1: {
         title: "The Forgotten Files",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Old projects revisited with fresh eyes — fragments from earlier builds, refactored and documented.",
         image: "assets/minimaps/west-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     wl2: {
         title: "The Easter Egg Vault",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Quirks, jokes, and secret interactions — a space for the oddities that didn’t fit anywhere else.",
         image: "assets/minimaps/west-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"
     },
     wl3: {
         title: "The Unfinished Abyss",
-        description: "A collection of forgotten files, secret projects, and things left behind.",
+        description: "Code that didn’t make it — early prototypes, explorations, and ideas waiting to be reborn.",
         image: "assets/minimaps/west-mini.png",
         // buttonText: "Enter Archives",
         // link: "/hidden-archives.html"

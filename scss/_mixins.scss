@@ -97,6 +97,22 @@
     overflow-y: auto;
 }
 
+// ---TOOLBOX--- 
+@mixin toolbox-modal-style() {
+    // display: none; 
+    position: fixed;
+    top: 45%;
+    left: -300px; // start off-screen
+    transform: translateY(50%);
+    transition: left 0.5s ease-out;
+    z-index: 999;
+    align-items: center;
+    // width: 25%; 
+    // height: auto; 
+    //background-color: $text-background; 
+    border-radius: 5px;
+}
+
 // ---INVENTORY--- 
 @mixin inventory-modal-style() {
     // display: none; 

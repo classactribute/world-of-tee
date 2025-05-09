@@ -51,6 +51,34 @@ p {
     text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
 }
 
+.under-construction::after {
+  content: " 🛠️";
+    font-size: 0.8em;
+    color: #fa67d1;
+    margin-left: 4px;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+button.wip {
+    opacity: 0.6;
+    filter: grayscale(80%);
+    pointer-events: none;
+}
+
+// button.wip::after {
+//   content: "🛠️ WIP";
+//   font-size: 0.7em;
+//   position: absolute;
+//   top: -1.5em;
+//   right: 0;
+//   color: #fa67d1;
+// }
+
 .contact-nav {
     position: fixed;
     display: flex;
@@ -58,25 +86,38 @@ p {
     bottom: 3%;
     left: 1%;
     z-index: 20;
+    width: 175px;
 
     .benny-tee {
+        position: fixed;
+        bottom: 5%;
         width: 175px;
         height: auto;
     }
+}
+
+.contact-btn {
+    background-color: var(--contact-btn-bg, $yellow);
+    color: var(--contact-btn-color, $dark-blue);
+}
+
+.contact-btn:hover {
+    background-color: var(--contact-btn-hover-gb, $dark-blue);
+    color: var(--contact-btn-hover-color, $yellow);
 }
 
 .contact-nav.animate {
     position: fixed;
     display: flex;
     flex-direction: column;
-    bottom: 20%;
-    left: 5%;
 
     .benny-tee {
         width: 175px;
         height: auto;
+        bottom: 19%;
+        left: 4%;
+        animation: slideUp 1s ease-in-out;
     }
-    animation: slideUp 1s ease-in-out;
 
     .contact-btn {
         display: none;
@@ -88,7 +129,7 @@ p {
     25% {bottom: 8%; left: 2%;}
     50% {bottom: 12%; left: 3%;}
     75% {bottom: 16%; left: 4%;}
-    100% {bottom: 20%; left: 5%;}
+    100% {bottom: 19%; left: 4%;}
 }
 
 .contact-modal {
@@ -154,12 +195,12 @@ p {
     --map-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --map-modal-inv-border: 1px solid #{$north-purple};
     --map-modal-inv-bs: inset 0 0 10px #{$north-light-pink};
-    --map-modal-inv-info-bg: #{$north-purple};
-    --map-modal-inv-info-border: 3px solid #{$north-purple};
-    --map-modal-content-color: #{$north-light-yellow};
-    --map-modal-coin-border: 3px solid #{$north-purple};
-    --map-modal-coin-text: #{$north-light-yellow};
-    --map-modal-coin-bg: #{$north-purple};
+    --map-modal-inv-info-bg: #{$north-pink};
+    --map-modal-inv-info-border: 5px solid #{$north-dark-blue-purple};
+    --map-modal-content-color: #{$north-dark-blue-purple};
+    --map-modal-coin-border: 5px solid #{$north-pink};
+    --map-modal-coin-text: #{$north-bright-white-glow};
+    --map-modal-coin-bg: #{$north-dark-blue-purple};
 
     --minimap-border: 5px solid #{$north-pink};
     --zoom-map-text: #{$north-dark-blue-purple};
@@ -192,7 +233,7 @@ p {
 
     --inv-bg: #{$north-dark-blue-purple};
     --inv-border: 5px solid #{$north-pink};
-    --inv-hover-bg: #{$north-light-pink};
+    --inv-hover-bg: #{$north-purple};
     --inv-hover-bs: 2px 2px 5px 1px #{$north-light-pink};
 
     --inv-modal-text: #{$north-pink};
@@ -216,6 +257,13 @@ p {
 
     --contact-modal-bg: linear-gradient(to left, #{$north-purple}, #{$north-dark-blue-purple});
     --contact-logo-text: #{$north-light-yellow};
+    --contact-btn-bg: #{$north-pink};
+    --contact-btn-color: #{$north-dark-blue-purple};
+    --contact-btn-hover-gb: #{$north-dark-blue-purple};
+    --contact-btn-hover-color: #{$north-pink};
+
+    --toolbox-img: url('assets/icons/toolbox north.png');
+    --inventory-img: url('assets/icons/knapsack north.png');
 }
       
 .theme-east {
@@ -234,10 +282,10 @@ p {
     --map-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --map-modal-inv-border: 1px solid #{$east-dark-purple};
     --map-modal-inv-bs: inset 0 0 10px #{$east-white-glow};
-    --map-modal-inv-info-bg: #{$east-dark-purple};
-    --map-modal-inv-info-border: 3px solid #{$east-dark-purple};
-    --map-modal-content-color: #{$east-white-glow};
-    --map-modal-coin-border: 3px solid #{$east-dark-purple};
+    --map-modal-inv-info-bg: #{$east-light-green};
+    --map-modal-inv-info-border: 5px solid #{$east-dark-purple};
+    --map-modal-content-color: #{$east-dark-purple};
+    --map-modal-coin-border: 5px solid #{$east-light-green};
     --map-modal-coin-text: #{$east-white-glow};
     --map-modal-coin-bg: #{$east-dark-purple};
 
@@ -272,7 +320,7 @@ p {
 
     --inv-bg: #{$east-dark-purple};
     --inv-border: 5px solid #{$east-light-green};
-    --inv-hover-bg: #{$east-pink};
+    --inv-hover-bg: #{$east-dark-green};
     --inv-hover-bs: 2px 2px 5px 1px #{$east-white-glow};
 
     --inv-modal-text: #{$east-light-green};
@@ -296,6 +344,13 @@ p {
 
     --contact-modal-bg: linear-gradient(to left, #{$east-dark-green}, #{$east-dark-purple});
     --contact-logo-text: #{$east-light-green};
+    --contact-btn-bg: #{$east-light-green};
+    --contact-btn-color: #{$east-dark-purple};
+    --contact-btn-hover-gb: #{$east-dark-purple};
+    --contact-btn-hover-color: #{$east-light-green};
+
+    --toolbox-img: url('assets/icons/toolbox east.png');
+    --inventory-img: url('assets/icons/knapsack east.png');
 }
     
 .theme-south {
@@ -314,12 +369,12 @@ p {
     --map-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --map-modal-inv-border: 1px solid #{$south-dark-purple};
     --map-modal-inv-bs: inset 0 0 10px #{$lighter-pink};
-    --map-modal-inv-info-bg: #{$south-pink-orange};
-    --map-modal-inv-info-border: 3px solid #{$south-dark-purple};
+    --map-modal-inv-info-bg: #{$south-bright-yellow-glow};
+    --map-modal-inv-info-border: 5px solid #{$south-dark-purple};
     --map-modal-content-color: #{$south-bright-yellow-glow};
-    --map-modal-coin-border: 3px solid #{$south-dark-purple};
+    --map-modal-coin-border: 5px solid #{$south-bright-yellow-glow};
     --map-modal-coin-text: #{$south-bright-yellow-glow};
-    --map-modal-coin-bg: #{$south-pink-orange};
+    --map-modal-coin-bg: #{$south-dark-purple};
 
     --minimap-border: 5px solid #{$south-bright-yellow-glow};
     --zoom-map-text: #{$south-bright-yellow-glow};
@@ -352,7 +407,7 @@ p {
 
     --inv-bg: #{$south-dark-purple};
     --inv-border: 5px solid #{$south-bright-yellow-glow};
-    --inv-hover-bg: #{$south-blue};
+    --inv-hover-bg: #{$south-pink-orange};
     --inv-hover-bs: 2px 2px 5px 1px #{$south-bright-yellow-glow};
 
     --inv-modal-text: #{$south-bright-yellow-glow};
@@ -373,9 +428,16 @@ p {
     --text-nav-bg: #{$charcoal-dark};
     --text-nav-border: 2px solid #{$south-bright-yellow-glow};
     --text-color: #{$south-bright-yellow-glow};
+    --contact-btn-bg: #{$south-pink-orange};
+    --contact-btn-color: #{$south-dark-purple};
+    --contact-btn-hover-gb: #{$south-dark-purple};
+    --contact-btn-hover-color: #{$south-pink-orange};
 
     --contact-modal-bg: linear-gradient(to left, #{$south-pink-orange}, #{$south-dark-purple});
     --contact-logo-text: #{$south-bright-yellow-glow};
+
+    --toolbox-img: url('assets/icons/toolbox south.png');
+    --inventory-img: url('assets/icons/knapsack south.png');
 }
     
 .theme-west {
@@ -394,12 +456,12 @@ p {
     --map-modal-bs: 2px 2px 10px 1px #{$option-button-box-shadow};
     --map-modal-inv-border: 1px solid #{$neon-pink};
     --map-modal-inv-bs: inset 0 0 10px #{$lighter-pink};
-    --map-modal-inv-info-bg: #{$west-light-pink};
-    --map-modal-inv-info-border: 3px solid #{$west-dark-pink};
-    --map-modal-content-color: #{$west-bright-blue-glow};
-    --map-modal-coin-border: 3px solid #{$west-dark-pink};
+    --map-modal-inv-info-bg: #{$west-bright-blue-glow};
+    --map-modal-inv-info-border: 5px solid #{$west-dark-purple};
+    --map-modal-content-color: #{$west-dark-purple};
+    --map-modal-coin-border: 5px solid #{$west-bright-blue-glow};
     --map-modal-coin-text: #{$west-bright-blue-glow};
-    --map-modal-coin-bg: #{$west-light-pink};
+    --map-modal-coin-bg: #{$west-dark-purple};
 
     --minimap-border: 5px solid #{$west-dark-pink};
     --zoom-map-text: #{$north-dark-blue-purple};
@@ -455,6 +517,13 @@ p {
 
     --contact-modal-bg: linear-gradient(to left, #{$west-light-blue}, #{$west-dark-purple});
     --contact-logo-text: #{$west-dark-pink};
+    --contact-btn-bg: #{$west-light-blue};
+    --contact-btn-color: #{$west-dark-purple};
+    --contact-btn-hover-gb: #{$west-dark-purple};
+    --contact-btn-hover-color: #{$west-light-blue};
+
+    --toolbox-img: url('assets/icons/toolbox west.png');
+    --inventory-img: url('assets/icons/knapsack west.png');
 }
 
 .site-name {
@@ -492,7 +561,7 @@ p {
 
 .num-coin {
     font-family: "VT323", serif;
-    font-weight: 800;
+    font-weight: 400;
     font-style:normal;
     font-size: clamp(2rem, 2vw, 3rem);
     color: var(--coin-num-color, $soft-yellow);
@@ -674,6 +743,83 @@ p {
     justify-content:space-between;
 }
 
+// Toolbox Modal
+// .toolbox-icon-img {
+//     src: var(--toolbox-color, '/assets/icons/toolbox yellow');
+// }
+
+.toolbox-modal-content {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-image: var(--inv-modal-bg, linear-gradient(to left, $neon-pink, $dark-blue));
+    border-style: solid;
+    border-color: var(--inv-modal-border-color, $yellow);
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-radius: 5px;
+    box-shadow: var(--inv-modal-bs, 2px 2px 10px 1px $option-button-box-shadow);
+    width: 100%; 
+    height: 100%;
+}
+
+.toolbox-modal-title {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.5625vw, 2rem);
+    color: var(--inv-modal-text, $yellow);
+    text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
+    justify-self: center;
+    margin: 4px;
+    img {
+        content: var(--toolbox-img, url('assets/icons/toolbox yellow.png'));
+    }
+}
+
+.toolbox-close-btn {
+    font-family: "VT323", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(1.25rem, 1.5625vw, 2rem);
+    color: var(--inv-modal-close-color, $yellow);
+    text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
+    // float: right;
+    position: relative;
+    left: 45%;
+}
+
+.toolbox-close-btn:hover,
+.toolbox-close-btn:focus {
+    color: var(--inv-modal-close-hover-color, $bright-blue);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.toolbox-modal-box-container {
+    display: flex;
+    flex-direction: column;
+    color: var(--inv-item-text, $dark-blue);
+    background-color: var(--inv-box-bg, $dark-blue);
+    border-radius: 2px;
+    // border-right-width: 1px;
+    // border-bottom-width: 1px;
+    border-style: solid;
+    border-color: var(--inv-box-border-color, $dark-blue);
+    box-shadow: var(--inv-box-bs, inset 0 0 0px $option-button-box-shadow);
+    margin: 7px;
+}
+  
+.toolbox-modal-box-container > * {
+    background: var(--inv-item-bg, $yellow);
+    margin: 4px;
+    border-radius: 2px;
+    border-color: var(--inv-item-border-color, $yellow);
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 10px $box-shadow-dark;
+}
+
 // Inventory Modal
 .inv-modal-content {
     display: block;
@@ -681,7 +827,7 @@ p {
     align-items: center;
     background-image: var(--inv-modal-bg, linear-gradient(to right, $neon-pink, $dark-blue));
     border-style: solid;
-    border-color: var(--inv-modal-border-color, $dark-blue);
+    border-color: var(--inv-modal-border-color, $yellow);
     border-top-width: 1px;
     border-left-width: 1px;
     border-radius: 5px;
@@ -695,10 +841,13 @@ p {
     font-weight: 800;
     font-style: normal;
     font-size: clamp(1.25rem, 1.5625vw, 2rem);
-    color: var(--inv-modal-text, $light-blue);
+    color: var(--inv-modal-text, $yellow);
     text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
     justify-self: center;
     margin: 4px;
+    img {
+        content: var(--inventory-img, url('assets/icons/knapsack yellow.png'));
+    }
 }
 
 .inv-close-btn {
@@ -706,7 +855,7 @@ p {
     font-weight: 800;
     font-style: normal;
     font-size: clamp(1.25rem, 1.5625vw, 2rem);
-    color: var(--inv-modal-close-color, $light-blue);
+    color: var(--inv-modal-close-color, $yellow);
     text-shadow: -1px -1px 0 $charcoal-dark, 1px -1px 0 $charcoal-dark, -1px 1px 0 $charcoal-dark, 1px 1px 0 $charcoal-dark;
     // float: right;
     position: relative;
@@ -749,7 +898,7 @@ p {
 }
   
 .inv-modal-box-container > * {
-    background: var(--inv-item-bg, $light-blue);
+    background: var(--inv-item-bg, $yellow);
     margin: 4px;
     border-radius: 2px;
     border-color: var(--inv-item-border-color, $yellow);
@@ -773,10 +922,10 @@ p {
 }
   
 .modal-inv-info > * {
-    background: var(--map-modal-inv-info-bg, $dark-blue);
+    background: var(--map-modal-inv-info-bg, $yellow);
     margin: 4px;
     border-radius: 5px;
-    border: var(--map-modal-inv-info-border, 3px solid $yellow);
+    border: var(--map-modal-inv-info-border, 4px solid $dark-blue);
     box-shadow: inset 0 0 10px $box-shadow-dark;
 }
 
@@ -1114,27 +1263,14 @@ p {
     background-color: var(--zoom-map-hover-bg);
 }
 
+.toolbox-modal.open {
+    left: 10px;
+}
+
 // for inventory slider
 .inventory-modal.open {
     right: 10px;
-  }
-
-// @keyframes glitchSlide {
-// 0% { right: -300px; opacity: 0; }
-// 30% { right: -260px; opacity: 0.3; }
-// 50% { right: -280px; opacity: 0.7; }
-// 70% { right: -250px; opacity: 1; }
-// 100% { right: 10px; }
-// }
-
-// .inventory-modal.glitch-open {
-// animation: glitchSlide 0.5s ease-out forwards;
-// }
-
-// [tabindex="0"]:focus {
-//     outline: 2px dashed gold;
-//     outline-offset: 4px;
-// }
+}
 
 .origin-story-box {
     position: relative;
