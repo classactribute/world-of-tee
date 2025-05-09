@@ -30,6 +30,9 @@ const westButtons = document.querySelector(".west-buttons");
 const contactModal = document.getElementById("contact-mdl");
 const contactOpenBtn = document.getElementById("contact-open-btn");
 const contactCloseBtn = document.getElementById("contact-close-btn");
+const toolboxOpenBtn = document.getElementById("toolbox-button");
+const toolboxModal = document.getElementById("toolbox-modal");
+const toolboxCloseSpan = document.querySelector(".toolbox-close-btn");
 const invModal = document.getElementById("inv-modal");
 const invOpenBtn = document.getElementById("inv-button");
 const invCloseSpan = document.querySelector(".inv-close-btn");
@@ -184,6 +187,10 @@ contactCloseBtn.addEventListener("click", () => {
     contactModal.classList.add("hidden");
     contactNav.classList.remove("animate");
 });
+
+// --- Toolbox Modal ---
+toolboxOpenBtn.addEventListener("click", () => toolboxModal.classList.add("open"));
+toolboxCloseSpan.addEventListener("click", () => toolboxModal.classList.remove("open"));
 
 // --- Inventory Modal ---
 invOpenBtn.addEventListener("click", () => invModal.classList.add("open"));

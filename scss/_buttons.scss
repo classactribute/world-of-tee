@@ -32,6 +32,28 @@
     }
 }
 
+/* 🔹 Toolbox Button */
+.toolbox-btn {
+    @include button-base();
+    //color: $charcoal-dark;
+    background-color: var(--inv-bg, $dark-blue);
+    //background-image: linear-gradient(180deg, $charcoal, $charcoal-dark);
+    border: var(--inv-border, 5px solid $yellow);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 4px;
+    width: auto;
+    height: auto;
+    img {
+        content: var(--toolbox-img, url('assets/icons/toolbox yellow.png'));
+    }
+
+    &:hover {
+        background-color: var(--inv-hover-bg, $neon-pink);
+        box-shadow: var(--inv-hover-bs, 2px 5px 1px $bright-yellow-glow);
+    }
+}
+
 /* 🔹 Inventory Button */
 .inventory-button {
     @include button-base();
@@ -44,9 +66,12 @@
     padding: 4px;
     width: auto;
     height: auto;
+    img {
+        content: var(--inventory-img, url('assets/icons/knapsack yellow.png'));
+    }
 
     &:hover {
-        background-color: var(--inv-hover-bg, $light-blue);
+        background-color: var(--inv-hover-bg, $neon-pink);
         box-shadow: var(--inv-hover-bs, 2px 5px 1px $bright-yellow-glow);
     }
 }
