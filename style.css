@@ -1697,6 +1697,10 @@ button.wip {
   display: none;
 }
 
+.benny-tee-mobile {
+  width: 200px;
+}
+
 .text-box {
   display: flex;
   flex-direction: column;
